@@ -13,6 +13,7 @@ define('CMS', true);
 require_once ('../includes/init.php');
 require_once ('../includes/fun.php');
 require_once ('../includes/lib.php'); // 载入模板调用函数，不载入该文件不能使用函数
+require_once ('../includes/runChart.php');
 
 $id = intval($_GET['id']);
 $cate_info = get_cate_info($id, $category);

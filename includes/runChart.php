@@ -38,7 +38,6 @@ function generateChart($product_id)
         return;
     }
     
-
     // Setup the graph
     $graph = new Graph(600, 500, "auto");
     $graph->SetScale("textlin");
@@ -70,19 +69,19 @@ function generateChart($product_id)
     $p1 = new LinePlot($rmb);
     $graph->Add($p1);
     $p1->SetColor("#6495ED");
-    $p1->SetLegend('美元');
+    $p1->SetLegend('RMB');
     
     // Create the second line
     $p2 = new LinePlot($dollar);
     $graph->Add($p2);
     $p2->SetColor("#B22222");
-    $p2->SetLegend('日元');
+    $p2->SetLegend('美元');
     
     // Create the third line
     $p3 = new LinePlot($jpy);
     $graph->Add($p3);
     $p3->SetColor("#FF1493");
-    $p3->SetLegend('韩元');
+    $p3->SetLegend('日元');
     
     $graph->legend->SetFrameWeight(1);
     
