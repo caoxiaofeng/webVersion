@@ -2,6 +2,40 @@
 $category=array (
   0 => 
   array (
+    'id' => '25',
+    'custom_url' => '',
+    'cate_name' => '我的空间',
+    'cate_mb_is' => '0',
+    'cate_hide' => '0',
+    'cate_channel' => '5',
+    'cate_fold_name' => 'wodekongjian',
+    'cate_order' => '8',
+    'cate_rank' => '0',
+    'cate_tpl' => '0',
+    'cate_tpl_index' => '',
+    'cate_tpl_list' => 'list_job.html',
+    'cate_tpl_content' => 'job_content.html',
+    'cate_title_seo' => '',
+    'cate_key_seo' => '',
+    'cate_info_seo' => '',
+    'lang' => 'cn',
+    'cate_parent' => '0',
+    'cate_html' => '1',
+    'cate_nav' => '2',
+    'is_content' => '0',
+    'cate_url' => 'http://',
+    'cate_is_open' => '0',
+    'form_id' => '0',
+    'cate_pic1' => '',
+    'cate_pic2' => '',
+    'cate_pic3' => '',
+    'cate_content' => '',
+    'temp_id' => '0',
+    'list_num' => '20',
+    'nav_show' => '0',
+  ),
+  1 => 
+  array (
     'id' => '8',
     'custom_url' => '',
     'cate_name' => '资料馆',
@@ -34,7 +68,7 @@ $category=array (
     'list_num' => '20',
     'nav_show' => '0',
   ),
-  1 => 
+  2 => 
   array (
     'id' => '7',
     'custom_url' => '',
@@ -68,7 +102,7 @@ $category=array (
     'list_num' => '20',
     'nav_show' => '0',
   ),
-  2 => 
+  3 => 
   array (
     'id' => '6',
     'custom_url' => '',
@@ -102,7 +136,7 @@ $category=array (
     'list_num' => '20',
     'nav_show' => '0',
   ),
-  3 => 
+  4 => 
   array (
     'id' => '5',
     'custom_url' => '',
@@ -136,7 +170,7 @@ $category=array (
     'list_num' => '20',
     'nav_show' => '0',
   ),
-  4 => 
+  5 => 
   array (
     'id' => '4',
     'custom_url' => '',
@@ -170,7 +204,7 @@ $category=array (
     'list_num' => '20',
     'nav_show' => '0',
   ),
-  5 => 
+  6 => 
   array (
     'id' => '3',
     'custom_url' => '',
@@ -204,7 +238,7 @@ $category=array (
     'list_num' => '20',
     'nav_show' => '0',
   ),
-  6 => 
+  7 => 
   array (
     'id' => '2',
     'custom_url' => '',
@@ -238,7 +272,7 @@ $category=array (
     'list_num' => '20',
     'nav_show' => '0',
   ),
-  7 => 
+  8 => 
   array (
     'id' => '1',
     'custom_url' => '',

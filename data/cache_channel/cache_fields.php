@@ -176,7 +176,7 @@ $field=array (
     'channel_id' => '1',
     'field_info' => '',
     'is_disable' => '0',
-    'check_value' => '',
+    'check_value' => NULL,
     'field_order' => '10',
     'is_del' => '0',
   ),

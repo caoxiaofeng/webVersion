@@ -1,3 +1,3 @@
 <?php
-$category = array();
-?>
+$category=array (
+);?>

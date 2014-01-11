@@ -23,7 +23,7 @@ $_sys=array (
   ),
   'image_url_is' => 
   array (
-    0 => '1',
+    0 => '0',
   ),
   'image_type' => 
   array (
@@ -44,8 +44,8 @@ $_sys=array (
   'mail_host' => 'smtp.163.com',
   'mail_pot' => '25',
   'mail_mail' => '',
-  'mail_user' => '',
-  'mail_pw' => '',
+  'mail_user' => 'admin',
+  'mail_pw' => 'admin',
   'mail_js' => '',
   'mail_jw' => 'BEESCMS企业网站管理系统 http://www.beescms.com',
   'safe_open' => 

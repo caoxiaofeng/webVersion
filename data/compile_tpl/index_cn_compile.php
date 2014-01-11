@@ -14,6 +14,27 @@
 <script type="text/javascript" src="<?php cmspath('template');?>/images/pic_go.js"></script>
 </head>
 <script type="text/javascript">
+
+function doSearch() 
+{
+	var rdo = document.getElementsByName("rad");
+	for ( var i = 0; i < rdo.length; i++) 
+	{
+		if (i == 0 && rdo[i].checked == true)
+		{
+			document.searchform.action = "<?php cmspath('search');?>";
+			document.searchform.submit();
+			
+		} else if (i == 1 && rdo[i].checked == true) 
+		{
+			document.searchform.tn.value = "baidu"
+			document.searchform.action = "http://www.baidu.com/baidu";
+			document.searchform.submit();
+		}
+	}
+	return false;
+}
+
 	$(document).ready(
 			function() {
 				$('#code').click(
@@ -57,45 +78,27 @@
 						});
 
 			});
-
-	function doSearch() {
-		var rdo = document.getElementsByName("rad");
-		for ( var i = 0; i < rdo.length; i++) {
-			if (i == 0 && rdo[i].checked == true) {
-				document.searchform.action = "<?php cmspath('search');?>";
-				document.searchform.submit();
-			} else if (i == 1 && rdo[i].checked == true) {
-				//document.searchform.method = "get";
-				//document.searchform.enctype="text/plain";
-				document.searchform.tn.value = "baidu"
-				document.searchform.action = "http://www.baidu.com/baidu";
-				document.searchform.submit();
-			}
-		}
-		return false;
-	}
 </script>
 <body>
 	<?php $this->display('head2',1,1);?>
 	<div class="mainPageStyle">
 		<!-- search area -->
 		<div id="search">
-			<!-- <form  name="form1" action="<?php cmspath('search');?>" method="post" style="margin-top: 5px;"> -->
-			<form name="searchform" target="blank" onsubmit="return doSearch()"
-				style="margin-top: 5px;">
-				<label> <input name=tn type="hidden" /> <input type="text"
-					name="word" id="textfield" /> <input type="radio" name="rad"
-					value="local" id="RadioGroup1_0" checked="true" /> 站内搜索 <input
-					type="radio" name="rad" value="baidu" id="RadioGroup1_1" /> 百度搜索 
-					<input type="submit" value="确定" name="submit"
-					style="background: #40b15f; color: #FFFFFF; margin-left: 5px; padding: 2px 0;" />
+			<form name="searchform" target="self" onsubmit="return doSearch()" style="margin-top: 5px;">
+				<label> 
+					<input name=tn type="hidden" /> 
+					<input type="text" name="word" id="textfield" /> 
+					<input type="radio" name="rad" value="local" id="RadioGroup1_0"  checked=true /> 站内搜索 
+					<input type="radio" name="rad" value="baidu" id="RadioGroup1_1"/> 百度搜索 
+					<input type="submit" value="确定" name="submit" onClick="doSearch()" 
+						style="background: #40b15f; color: #FFFFFF; margin-left: 5px; padding: 2px 0;" />
 				</label>
 			</form>
 		</div>
 		<!-- recommend and login -->
 		<div id="recommendAndLogin">
 			<div id="recommendAndLogin_t">
-				<?php $top_one=get_top_content($limit='0,1',$order_type='updatetime',$filter='',$pic='no',$order='desc',$lang='');?>
+				<?php $top_one=get_top_content($limit='0,1',$order_type='updatetime',$filter='b',$pic='no',$order='desc',$lang='');?>
 				<div id="recommendAndLogin_r_Imgs">
 					<a title="<?php echo $top_one[0]['title'];?>"
 						href="<?php echo $top_one[0]['url'];?>"> <img
