@@ -71,6 +71,7 @@ INSERT INTO `bees_category`
 VALUES('7','','企业动向','0','0','2','qydx','6','0','0','','list_article.html','article_content.html','','','','cn','0','1','2','0','http://','0','0','','','','','2','20','0');
 INSERT INTO `bees_category` 
 VALUES('8','','资料馆','0','0','2','zlguan','7','0','0','','list_article.html','article_content.html','','','','cn','0','1','2','0','http://','0','0','','','','','2','20','0');
+INSERT INTO `bees_category` VALUES('9','','我的空间','0','0','5','wodekongjian','8','0','0','','list_job.html','job_content.html','','','','cn','0','1','2','0','http://','0','8','','','','','0','20','');
 DROP TABLE IF EXISTS `bees_channel`;
 CREATE TABLE `bees_channel` (
   `id` mediumint(8) NOT NULL AUTO_INCREMENT,
@@ -90,7 +91,7 @@ CREATE TABLE `bees_channel` (
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 INSERT INTO `bees_channel` VALUES('1','单页模型','alone','alone','0','0','2','0','1','5','1','alone/alone.php','alone/show_alone.php');
 INSERT INTO `bees_channel` VALUES('2','文章模块','article','article','0','0','2','0','0','1','0','article/article.php','article/show_article.php');
-VALUES('2','工作模块','article','article','0','0','2','0','0','1','0','job/job.php','job/show_job.php');
+INSERT INTO `bees_channel` VALUES('5','个人模块','job','job','0','0','2','0','0','4','0','job/job.php','job/show_job.php');
 DROP TABLE IF EXISTS `bees_flash_ad`;
 CREATE TABLE `bees_flash_ad` (
   `id` mediumint(8) NOT NULL AUTO_INCREMENT,
