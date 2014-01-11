@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>管理价格数据</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css" />
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<script type="text/javascript"></script>
+</head>
+
+<body>
+	<div class="admin_position">
+		<span>当前位置 > 管理价格数据</span>
+	</div>
+	<!--位置-->
+	
+	<div class="order_contain">
+		
+		<form name="form" id="form1" method="post" action="admin_price_data.php" class="form">
+			<div class="list_sl_btn">
+				<ul>
+					<li><select name="product_id"
+						style="width: 200px; margin-top: 2px;">
+							<option value="">请选择产品</option>
+							<?php
+							if(empty($category)){
+										echo "没有产品";
+									}else{
+
+		  								foreach($category as $k=>$v)
+										{
+		  									$str.="<option value=\"{$v['id']}\">{$v['cate_name']}</option>";
+		  								}
+		  								echo $str;
+									}
+
+							?>
+					</select></li>
+					
+					<li><input type="hidden" name="action" value="search_product" /> <input
+					type="submit" value="确定" name="submit" />
+					</li>
+				</ul>
+			</div>
+			
+	<div class="order_main">
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<thead>
+						<tr>
+							<th style="width: 20%">日期</th>
+							<th style="width: 20%">人民币价格</th>
+							<th style="width: 20%">美元价格</th>
+							<th style="width: 20%">日元价格</th>
+							<th style="width: 20%">编辑</th>
+						</tr>
+					</thead>
+					<tbody>
+			
+						<?php
+	if(empty($product_price)){
+		echo "没有产品";
+	}
+	else
+	{
+	foreach($product_price as $k=>$v)
+	{
+		$str.=" <tr><td style=\"width: 20%; text-align: center\" class=\"w1\">{$v['price_date']}</td>
+				<td style=\"width: 20%; text-align: center\" class=\"w1\">{$v['rmb_price']}</td>
+				<td style=\"width: 20%; text-align: center\" class=\"w1\">{$v['dollar_price']}</td>
+				<td style=\"width: 20%; text-align: center\" class=\"w1\">{$v['JPY_price']}</td>
+				<td style=\"width: 20%; text-align: center\" class=\"w1\">编辑/删除</td></tr>";
+	}
+	echo $str;
+	}
+?>
+
+					
+					</tbody>
+				</table>
+			</div>
+	</div>
+</body>
+</html>

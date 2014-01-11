@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>添加价格数据</title>
+<link rel="stylesheet" type="text/css" href="template/admin.css" />
+<script type="text/javascript" src="template/images/jquery.js"></script>
+<script type="text/javascript"></script>
+</head>
+
+<body>
+	<div class="admin_position">
+		<span>当前位置 > 添加价格数据</span>
+	</div>
+	<!--位置-->
+	
+	<div class="order_contain">
+		<form name="maininfo" method="post" enctype="multipart/form-data"
+			action="admin_price_data.php" class="form">
+			<div class="order_main">
+				<table cellpadding="0" cellspacing="0" width="100%">
+					<thead>
+						<tr>
+							<th style="width: 30%">参数说明</th>
+							<th style="width: 70%" align="left">参数值</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td style="width: 30%; text-align: center" class="w1">日期：</span></td>
+							<td style="width: 70%"><input name="price_date" value=""
+								style="width: 30%"  type="text"/></td>
+						</tr>
+						<tr>
+							<td style="width: 30%; text-align: center" class="w1">选择产品：
+								<p style="color: #999999; font-weight: normal"></p>
+							</td>
+							<td style="width: 70%">
+								<select name="product_id">
+									<?php 
+									if(empty($category)){
+										echo "没有产品";
+									}else{
+
+		  								foreach($category as $k=>$v)
+										{
+		  									$str.="<option value=\"{$v['id']}\">{$v['cate_name']}</option>";
+		  								}
+		  								echo $str;
+									}
+		  							?>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 30%; text-align: center" class="w1">人民币价格：</span></td>
+							<td style="width: 70%"><input type="text" name="rmb_price"
+								value="" style="width: 30%" /></td>
+						</tr>
+						<tr>
+							<td style="width: 30%; text-align: center" class="w1">美元价格：</span></td>
+							<td style="width: 70%"><input name="dollar_price" value="" style="width: 30%" /></td>
+						</tr>
+						<tr>
+							<td style="width: 30%; text-align: center" class="w1">日元价格：</span></td>
+							<td style="width: 70%"><input name="JPY_price" value="" style="width: 30%" /></td>
+						</tr>
+						<tr>
+							<td style="width: 30%; text-align: center" class="w1">分类：
+								<p style="color: #999999; font-weight: normal"></p>
+							</td>
+							<td style="width: 70%">
+							<input name="product_category" value="" style="width: 30%" /></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="order_btn">
+				<input type="hidden" name="action" value="add_data" /> <input
+					type="submit" value="确定" name="submit" /><input type="reset"
+					style="margin: 0 10px;" value="重置" name="reset" />
+			</div>
+		</form>
+	</div>
+
+</body>
+</html>

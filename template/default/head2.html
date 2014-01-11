@@ -1,0 +1,77 @@
+
+<script>
+function bookmark(){
+	var title=document.title
+	var url=document.location.href
+	if (window.sidebar) window.sidebar.addPanel(title, url,"");
+	else if( window.opera && window.print ){
+	var mbm = document.createElement('a');
+	mbm.setAttribute('rel','sidebar');
+	mbm.setAttribute('href',url);
+	mbm.setAttribute('title',title);
+	mbm.click();}
+	else if( document.all ) window.external.AddFavorite( url, title);
+	}
+	
+function setHomepage() {　 // 设为首页
+　　　 if (document.all) {
+　　　　　　　 document.body.style.behavior = 'url(#default#homepage)';
+　　　　　　　 document.body.setHomePage('http://www.bainfo.com');　　　　　　　　　　　
+		}
+　　　 else if (window.sidebar) {
+　　　　　　　 if (window.netscape) {
+　　　　　　　　　　　 try {
+　　　　　　　　　　　　　　　 netscape.security.PrivilegeManager.enablePrivilege("UniversalXPConnect");
+　　　　　　　　　　　 }
+　　　　　　　　　　　 catch (e) {
+　　　　　　　　　　　　　　　 alert("该操作被浏览器拒绝，假如想启用该功能，请在地址栏内输入 about:config,然后将项 signed.applets.codebase_principal_support 值该为true");
+　　　　　　　　　　　 }
+　　　　　　　 }
+　　　　　　　 var prefs = Components.classes['@mozilla.org/preferences-service;1'].getService(Components.interfaces.nsIPrefBranch);
+　　　　　　　 prefs.setCharPref('browser.startup.homepage','http://www.bainfo.com');
+　　　 }　　　　　　　 
+} 
+   </script>
+   
+<link href="images/main.css" rel="stylesheet" type="text/css" />
+
+<div class="mainPageStyle">
+<!-- 顶部图片，设置首页与收藏按钮 -->	
+	<div id="headView">
+		<button id="headView_default" onclick=setHomepage()></button>
+	    <button id="headView_bookmark" onclick=bookmark()></button>
+		<!-- <input type="button" name="bookmark" id="headView_bookmark" onclick=bookmark() /> -->
+		{flash/}
+		<!--<img src="{path template/}/images/main_top_head.jpg" alt="headImg" />-->
+		
+	</div>
+	
+<!-- 多语言链接 -->	
+<!-- 	<div>
+		{loop source=lang()} <a href="{print $v['url']/}"{print $v['class']/} {print $v['target']/}>
+			{print $v['lang_name']/} </a> {/loop}
+	</div>  -->
+
+	<div id="category">
+		<div class="head_nav">
+			<div class="nav_left">
+				<div class="nav_right">
+					<ul>
+						<li class="{print get_web_param('index_focus')/}">
+							<a href="{path index/}">
+								<span>首页</span>
+							</a>
+						</li>
+						{loop source=nav_middle() item=$nav_child}
+						<li class="{print $nav_child['class']/}">
+							<a href="{print $nav_child['url']/}"{print $nav_child['target']/}>
+								<span>{print $nav_child['cate_name']/}</span>
+							</a>
+						</li> 
+						{/loop}
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,257 @@
+@CHARSET "UTF-8";
+	/* body {     font: 100% Verdana, Arial, Helvetica, sans-
+serif;     background: #666666;     margin: 0;     padding: 0;     text-align:
+center;     color: #000000;     margin-top: 0px;     margin-bottom: 0px; } */
+
+/* Tips for Elastic layouts 
+1. Since the elastic layouts overall sizing is based on the user's default fonts size, they are more unpredictable. Used correctly, they are also more accessible for those that need larger fonts size since the line length remains proportionate.
+2. Sizing of divs in this layout are based on the 100% font size in the body element. If you decrease the text size overall by using a font-size: 80% on the body element or the #container, remember that the entire layout will downsize proportionately. You may want to increase the widths of the various divs to compensate for this.
+3. If font sizing is changed in differing amounts on each div instead of on the overall design (ie: #sidebar1 is given a 70% font size and #mainContent is given an 85% font size), this will proportionately change each of the divs overall size. You may want to adjust based on your final font sizing.
+*/
+.mainPageStyle {
+	width: 1000px;
+	margin: 0px auto;
+}
+
+.mainPageStyle #container {
+	padding: 0;
+}
+
+.mainPageStyle #headView {
+	height: 200px;
+	/*width: 950px;*/
+}
+
+.mainPageStyle #headView_default {
+	position:absolute; 
+	width:82px; 
+	height: 22px; 
+	margin-top: 10px; 
+	margin-left:800px; 
+	background:url(default_web.jpg);
+}
+
+.mainPageStyle #headView_bookmark {
+	position:absolute; 
+	width:82px; 
+	height: 22px; 
+	margin-top: 10px; 
+	margin-left:900px; 
+	background:url(bookmark_web.jpg);
+}
+
+.mainPageStyle #headView img {
+	height: 200px;
+	width: 950px;
+}
+
+.mainPageStyle #category {
+	background: #clear;
+	/*width: 950px;*/
+	height: 45px;
+	background-image: url(main_category_bg.jpg);
+	background-repeat: no-repeat;
+	background-position: center;
+	overflow: hidden;
+}
+
+.mainPageStyle #subCategory {
+	background: #f4f4f4;
+	/*width: 950px;*/
+	height: 40px;
+	overflow: hidden;
+}
+
+.mainPageStyle #position {
+	background: clear;
+	/*width: 1024px;*/
+	height: 20px;
+	text-align: left;
+}
+
+.mainPageStyle #search {
+	background: clear;
+	/*width: 1024px;*/
+	height: 20px;
+	text-align: center;
+}
+
+.mainPageStyle #recommendAndLogin {
+	background: clear;
+	/*width: 1024px;*/
+	height: 215px;
+	background-image: url(recommend_login_bg.png);
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+.mainPageStyle #recommendAndLogin_t {
+	background: clear;
+	float: left;
+	width: 700px;
+}
+
+.mainPageStyle #recommendAndLogin_r_Imgs {
+	background: clear;
+	float: left;
+	width: 200px;
+	height: 166px;
+	margin-top: 30px;
+	margin-left: 10px;
+	overflow:hidden;
+}
+
+.mainPageStyle #recommendAndLogin_r_Top5 {
+	/* background: #eeddff; */
+	float: right;
+	width: 65%;
+	height: 166px;
+	margin-top: 20px;
+	margin-left: 10px;
+	word-wrap: break-word;
+	/* overflow-y: scroll; */
+	/*overflow:hidden;
+	text-overflow: ellipsis;*/
+}
+
+.mainPageStyle #recommendAndLogin_r_Top5 p {
+	font-size: 12px;
+	margin-top: 2px;
+	color:#000000;
+	text-align:left;
+}
+
+.mainPageStyle #recommendAndLogin_r_Top5 p1 {
+	float:left;
+	font-size: 18px;
+	text-align:center;
+	color:#57952c;
+ 	width:460px;
+}
+
+/* .mainPageStyle #recommendAndLogin_r_Top5 p2 {
+	font-size: 2.0em;
+} */
+
+.mainPageStyle #recommendAndLogin_r_Top5 a {
+	font-style: normal;
+	font-size: 12px;
+	color: #666666;
+	text-decoration: none;
+	/* border-bottom: #CCCCCC 1px dashed; */
+}
+
+.mainPageStyle #recommendAndLogin_r_Top5 a:hover {
+	/* border-bottom: #003399 1px dashed; */
+	color: #4ba610;
+}
+
+.mainPageStyle #recommendAndLogin_login {
+	background: clear;
+	float: left;
+	/*margin-left:70%;*/
+	width: 300px;
+	margin-top: 20px;
+}
+.mainPageStyle #recommendAndLogin_login p{
+	float:left;
+	height:30px;
+}
+
+.mainPageStyle #middleBanner {
+	background: clear;
+	/*width: 1024px;*/
+	height: 75px;
+}
+
+.mainPageStyle #middleBanner img {
+	width: 998px;
+	height: 75px;
+}
+
+.mainPageStyle #mainContent {
+	background: clear;
+}
+
+.mainPageStyle #mainContent_cate {
+	width: 75%;
+	float: left;
+	text-align: left;
+}
+
+.mainPageStyle #mainContent_cate_list {
+	float: left;
+	margin-left: 0px;
+	margin-top: 4px;
+	margin-bottom: 0px;
+	width: 371px;
+	height: 210px;
+	background-image: url(category_area_in_top.jpg);
+	background-repeat: no-repeat;
+	background-position: top;
+	text-align: left;
+}
+
+.mainPageStyle #mainContent_cate_list_title {
+	float: left;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	width: 371px;
+	height: 32px;
+	text-align: left;
+}
+
+.mainPageStyle #mainContent_cate_list_title p {
+	text-align: left;
+	font-size: 16px;
+	margin-left: 5px;
+	float: left;
+}
+
+.mainPageStyle #mainContent_cate_list_title a {
+	color: #000000;
+	margin-top: 15px;
+}
+
+.mainPageStyle #mainContent_cate_list_content {
+	float: left;
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	width: 371px;
+	height: 178px;
+	text-align: left;
+}
+
+.mainPageStyle #mainContent_cate_list_content p{
+	margin-left: 10px;
+	margin-top: 9px;
+	margin-bottom: 0px;
+	text-align: left;
+	font-style: simsun;
+	font-size: 12px;
+}
+
+.mainPageStyle #mainContent_r {
+	width: 25%;
+	float: right;
+}
+
+.mainPageStyle #mainContent_r_grid {
+	background: clear;
+	margin-top: 4px;
+	width: 100%;
+	height: 210px;
+}
+
+.mainPageStyle #rightMainContentGrid p {
+	background: clear;
+	text-align: left;
+}
+
+.mainPageStyle #mainContent_article_list {
+	width: 75%;
+	float: left;
+	text-align: left;
+}

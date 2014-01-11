@@ -1,0 +1,260 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="{print webinfo('web_description')/}">
+<meta name="keywords" content="{print webinfo('web_keywords')/}">
+<title>{if webinfo('web_index_name')}{print
+	webinfo('web_index_name')/}{else}{print webinfo('web_name')/}{/if}</title>
+<link href="{path template/}/images/style.css" rel="stylesheet"
+	type="text/css">
+<link href="{path template/}/images/main.css" rel="stylesheet"
+	type="text/css">
+<script type="text/javascript" src="{path template/}/images/jquery.js"></script>
+<script type="text/javascript" src="{path template/}/images/nav.js"></script>
+<script type="text/javascript" src="{path template/}/images/pic_go.js"></script>
+</head>
+<script type="text/javascript">
+	$(document).ready(
+			function() {
+				$('#code').click(
+						function() {
+							$(this).attr(
+									'src',
+									'{path includes/}/code.php?tag='
+											+ new Date().getTime());
+						});
+				$.ajax({
+					type : "POST",
+					url : "{path member/}/member.php",
+					data : "action=is_ajax_login&lang="
+							+ "{print get_web_param('lang')/}",
+					dataType : "json",
+					success : function(data) {
+						if (data.login == 1) {
+							$('#ajx_area').html(data.info);
+						}
+					}
+				});
+				$('#ajax_login').click(
+						function() {
+							$.ajax({
+								type : "POST",
+								url : "{path member/}/member.php",
+								data : "action=ajax_login&lang="
+										+ $('#ajax_lang').val() + "&password="
+										+ $('#ajax_password').val() + "&user="
+										+ $('#ajax_user').val() + "&code="
+										+ $('#ajax_code').val(),
+								dataType : "json",
+								success : function(data) {
+									if (data.login == 1) {
+										$('#ajx_area').html(data.info);
+									} else {
+										//alert(data.info);
+									}
+								}
+							});
+						});
+
+			});
+
+	function doSearch() {
+		var rdo = document.getElementsByName("rad");
+		for ( var i = 0; i < rdo.length; i++) {
+			if (i == 0 && rdo[i].checked == true) {
+				document.searchform.action = "{path search/}";
+				document.searchform.submit();
+			} else if (i == 1 && rdo[i].checked == true) {
+				//document.searchform.method = "get";
+				//document.searchform.enctype="text/plain";
+				document.searchform.tn.value = "baidu"
+				document.searchform.action = "http://www.baidu.com/baidu";
+				document.searchform.submit();
+			}
+		}
+		return false;
+	}
+</script>
+<body>
+	{include head2/}
+	<div class="mainPageStyle">
+		<!-- search area -->
+		<div id="search">
+			<!-- <form  name="form1" action="{path search/}" method="post" style="margin-top: 5px;"> -->
+			<form name="searchform" target="blank" onsubmit="return doSearch()"
+				style="margin-top: 5px;">
+				<label> <input name=tn type="hidden" /> <input type="text"
+					name="word" id="textfield" /> <input type="radio" name="rad"
+					value="local" id="RadioGroup1_0" checked="true" /> 站内搜索 <input
+					type="radio" name="rad" value="baidu" id="RadioGroup1_1" /> 百度搜索 
+					<input type="submit" value="确定" name="submit"
+					style="background: #40b15f; color: #FFFFFF; margin-left: 5px; padding: 2px 0;" />
+				</label>
+			</form>
+		</div>
+		<!-- recommend and login -->
+		<div id="recommendAndLogin">
+			<div id="recommendAndLogin_t">
+				{assign
+				source=get_top_content($limit='0,1',$order_type='updatetime',$filter='',$pic='no',$order='desc',$lang='')
+				name=top_one/}
+				<div id="recommendAndLogin_r_Imgs">
+					<a title="{print $top_one[0]['title']/}"
+						href="{print $top_one[0]['url']/}"> <img
+						src="{path upload/}/{print $top_one[0]['tbpic']/}"
+						alt="Top News Img" />
+					</a>
+				</div>
+
+				<div id="recommendAndLogin_r_Top5">
+
+					<!-- 置顶头条 -->
+
+					{if $top_one}
+					<p>
+						<a title="{print $top_one[0]['title']/}"
+							href="{print $top_one[0]['url']/}"
+							style="float: left; font-size: 14px; text-align: center; color: #57952c; width: 460px;">
+							{print $top_one[0]['title']/} </a>
+					</p>
+					{else}
+					<p>&nbsp;</p>
+					{/if}
+					<p>&nbsp;</p>
+					<!-- 分类头条 -->
+					{loop source=top_article(5) item=$nav_child}
+					<p>
+						<b><span
+							style="font-size: 12px; width: 20%; margin-top: 2px; text-align: center; display: block; float: left">{print
+								$nav_child['cate_name']/}:</span></b> {assign
+						source=get_else_content($cate_id=$nav_child['id'],$limit='0,1',$order_type='updatetime',$filter='',$pic='no',$order='desc',$lang='')
+						name=hot_arc/} {if $hot_arc} <a
+							title="{print $hot_arc[0]['title']/}"
+							href="{print $hot_arc[0]['url']/}"> <span
+							style="width: 80%; text-align: left; margin-top: 2px; display: block; float: left">{print
+								cn_substr($hot_arc[0]['title'],60)/}</span>
+						</a> {/if}
+					</p>
+					<p
+						style="font-size: 9px; color: #c9c9c9; text-align: left; display: block; float: left;">－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－－</p>
+					{/loop}
+				</div>
+			</div>
+
+			<div id="recommendAndLogin_login">
+				<form name="form1" action="{path cms/}member.php" method="post">
+					<div style="width: 300px; height:40px;">
+						<p style="margin-left: 90px;">
+							<img src="{path template/}/images/user_login.png"
+								alt="user login Img" />
+						</p>
+					</div>
+
+					<div id="ajx_area" style="margin-top:4px; height:100px;">
+						<div style="margin-top:4px;">
+							<span style="font-size: 12px; font-weight:700">帐 号：</span>
+							<input type="text" id="ajax_user" name="user"
+								style="height: 24px; width:220px;" />
+						</div>
+						
+						<div style="margin-top:4px;">
+							<span style="font-size: 12px; font-weight:700">密 码：</span>
+							<input type="password" id="ajax_password"
+								name="password" style="height: 24px; width:220px;" />
+						</div>
+
+							<!-- <p1 style="text-align:left">验证码：</p1>
+					<p2>
+						<input type="text" name="code" id="ajax_code"
+							style="width:60px; margin-top: 6px;" />
+						<img src="{path includes/}/code.php" name="code" id="code"
+							style="cursor: pointer; display: inline;width:50%;" />
+					</p2>
+					</p> -->
+					
+						<div style="margin-left:50px; margin-top:8px; width:260px; float:center;">
+							<input type="hidden" id="ajax_lang"
+								value="{print get_web_param('lang')/}" name="lang" /> 
+							<input
+								type="button"
+								style="border: 0; background:#189840; color:#000000; padding: 0"
+								value="登 陆"  name="go"
+								id="ajax_login" /> 
+							<a href="{path member/}/member.php?action=regist&lang={print get_web_param('lang')/}">注册</a>
+							<a href="#">忘记密码</a>
+						</div>
+					</div>
+					
+					<div  style="width: 300px; height:5px;">
+						<span style="height:5px;">－－－－－－－－－－－－－－－－－－－－－－－</span>
+					</div>
+					
+					<div style="width: 300px; float:left; margin-top:8px;">
+					&nbsp;
+					 	<img src="{path template/}/images/web_map.png" alt="map" /><a href="#">网站地图&nbsp;&nbsp;&nbsp;&nbsp;</a>
+					 	<img src="{path template/}/images/service_icon.png" alt="service" /><a href="#">客户服务&nbsp;&nbsp;&nbsp;&nbsp;</a>
+						<img src="{path template/}/images/ad_icon.png" alt="ads" /><a href="#">广告服务</a>
+					</div>
+				</form>
+				<div class="clear"></div>
+			</div>
+		</div>
+
+		<!-- middle banner -->
+		<div id="middleBanner">
+			<img src="{path template/}/images/middle_banner.jpg" alt="banner Img" />
+		</div>
+
+		<!--category article list -->
+		<div id="mainContent">
+			<div id="mainContent_cate">
+				{loop source=category_article() item=$nav_child}
+				<div id="mainContent_cate_list">
+					<div id="mainContent_cate_list_title">
+						<p>
+							<img style="margin-top: 8px; height: 16px"
+								src="{path template/}/images/article_title_circle.png"
+								alt="banner Img" /> {print $nav_child['cate_name']/}
+							<!-- <a href="{print $nav_child['url']/}"{print $nav_child['target']/}><span>{print
+									$nav_child['cate_name']/}</span></a> -->
+						<p style="float: right; margin-right: 10px; margin-top: 6px;">
+							<a href="{print $nav_child['url']/}"{print $nav_child['target']/}><img
+								src="{path template/}/images/more_article.gif" alt="banner Img" /></a>
+						</p>
+						</p>
+					</div>
+					<div id="mainContent_cate_list_content">
+						{assign
+						source=get_else_content($cate_id=$nav_child['id'],$limit='0,7',$order_type='hits',$filter='',$pic='no',$order='desc',$lang='')
+						name=hot_arc/} {if $hot_arc} {loop source=$hot_arc}
+						<p>
+							<img src="{path template/}/images/article_triangle_tip.png"
+								alt="banner Img" /> <a title="{print $v['title']/}"
+								href="{print $v['url']/}"
+								{print $v['target']/} {if $v['style']} style="{print $v['style']/}"{/if}>
+								{print cn_substr($v['title'],60)/} </a> <span
+								style="float: right; margin-right: 10px">{print
+								date('y-m-d',$v['updatetime'])/}</span>
+						</p>
+						{/loop} {/if}
+					</div>
+				</div>
+				{/loop}
+
+			</div>
+
+			<div id="mainContent_r">
+				<div id="mainContent_r_grid">{right_ad1/}</div>
+				<div id="mainContent_r_grid">{right_ad2/}</div>
+				<div id="mainContent_r_grid">{right_ad3/}</div>
+			</div>
+			<div class="clear"></div>
+		</div>
+
+	</div>
+
+	{include foot/}
+
+</body>
+</html>
