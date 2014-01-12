@@ -59,7 +59,7 @@ foreach($fun_return as $v){?> <a href="<?php echo $v['url'];?>"<?php echo $v['cl
 	<div id="category">
 		<div class="head_nav">
 			<div class="nav_left">
-				<div class="nav_right">
+				
 					<ul>
 						<li class="<?php echo get_web_param('index_focus');?>">
 							<a href="<?php cmspath('index');?>">
@@ -78,7 +78,7 @@ foreach($fun_return as $nav_child){?>
 }
 }?>
 					</ul>
-				</div>
+				
 			</div>
 		</div>
 	</div>

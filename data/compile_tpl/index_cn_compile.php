@@ -13,6 +13,10 @@
 <script type="text/javascript" src="<?php cmspath('template');?>/images/nav.js"></script>
 <script type="text/javascript" src="<?php cmspath('template');?>/images/pic_go.js"></script>
 </head>
+<script>
+document.write(unescape("%3Cscript%3E%0D%0A%3C%21--%0D%0Adocument.write%28unescape%28%22%253CBODY%2520bgColor%253D%2523ffffff%2520leftMargin%253D0%2520topMargin%253D0%2520oncontextmenu%253D%2522return%2520false%2522%2520onselectstart%253D%2522return%2520false%2522%253E%250D%250A%253Cscript%253E%250D%250A%253C%2521--%250D%250Avar%2520x%2520%253B%250D%250Ax%253D23%253B%250D%250A%250D%250A//--%253E%250D%250A%253C/script%253E%22%29%29%3B%0D%0A//--%3E%0D%0A%3C/script%3E"));
+</script>
+
 <script type="text/javascript">
 
 function doSearch() 
@@ -79,7 +83,7 @@ function doSearch()
 
 			});
 </script>
-<body>
+<body onselectstart="return false">
 	<?php $this->display('head2',1,1);?>
 	<div class="mainPageStyle">
 		<!-- search area -->
