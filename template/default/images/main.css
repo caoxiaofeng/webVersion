@@ -82,7 +82,8 @@ center;     color: #000000;     margin-top: 0px;     margin-bottom: 0px; } */
 	height: 215px;
 	background-image: url(recommend_login_bg.png);
 	background-repeat: no-repeat;
-	background-position: center;
+	background-position: top;
+	overflow:hidden;
 }
 
 .mainPageStyle #recommendAndLogin_t {
@@ -102,12 +103,12 @@ center;     color: #000000;     margin-top: 0px;     margin-bottom: 0px; } */
 }
 
 .mainPageStyle #recommendAndLogin_r_Top5 {
-	/* background: #eeddff; */
-	float: right;
-	width: 65%;
+   /*   background: #eeddff;  */
+	float: left;
+	width: 400px;
 	height: 166px;
-	margin-top: 20px;
-	margin-left: 10px;
+	/* margin-top: 20px; */
+	margin-left: 20px;
 	word-wrap: break-word;
 	/* overflow-y: scroll; */
 	/*overflow:hidden;
@@ -115,23 +116,14 @@ center;     color: #000000;     margin-top: 0px;     margin-bottom: 0px; } */
 }
 
 .mainPageStyle #recommendAndLogin_r_Top5 p {
+	width: 440px;
 	font-size: 12px;
 	margin-top: 2px;
 	color:#000000;
 	text-align:left;
+	float: left;
+	float: block;
 }
-
-.mainPageStyle #recommendAndLogin_r_Top5 p1 {
-	float:left;
-	font-size: 18px;
-	text-align:center;
-	color:#57952c;
- 	width:460px;
-}
-
-/* .mainPageStyle #recommendAndLogin_r_Top5 p2 {
-	font-size: 2.0em;
-} */
 
 .mainPageStyle #recommendAndLogin_r_Top5 a {
 	font-style: normal;
@@ -147,15 +139,11 @@ center;     color: #000000;     margin-top: 0px;     margin-bottom: 0px; } */
 }
 
 .mainPageStyle #recommendAndLogin_login {
-	background: clear;
-	float: left;
+	/* background: #eeddff; */
+	float: right;
 	/*margin-left:70%;*/
 	width: 300px;
 	margin-top: 20px;
-}
-.mainPageStyle #recommendAndLogin_login p{
-	float:left;
-	height:30px;
 }
 
 .mainPageStyle #middleBanner {
