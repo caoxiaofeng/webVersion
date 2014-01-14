@@ -209,16 +209,23 @@ center;     color: #000000;     margin-top: 0px;     margin-bottom: 0px; } */
 	margin-bottom: 0px;
 	width: 371px;
 	height: 178px;
-	text-align: left;
+	/* text-align: left; */
 }
 
 .mainPageStyle #mainContent_cate_list_content p{
+/* 	background:#234567; 
+	height:15px; */
 	margin-left: 10px;
 	margin-top: 9px;
 	margin-bottom: 0px;
 	text-align: left;
 	font-style: simsun;
 	font-size: 12px;
+}
+
+.mainPageStyle #mainContent_cate_list_content a{
+	display:inline;
+	float:left;
 }
 
 .mainPageStyle #mainContent_r {
