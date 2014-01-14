@@ -23,6 +23,10 @@
     </script>
     <script type="text/javascript" src="<?php cmspath('template');?>/images/pic_go.js">
     </script>
+
+    <script type="text/javascript"  language="javascript" src="<?php cmspath('template');?>/images/ie6png.js">
+    </script>
+
     <script>
       document.write(unescape("%3Cscript%3E%0D%0A%3C%21--%0D%0Adocument.write%28unescape%28%22%253CBODY%2520bgColor%253D%2523ffffff%2520leftMargin%253D0%2520topMargin%253D0%2520oncontextmenu%253D%2522return%2520false%2522%2520onselectstart%253D%2522return%2520false%2522%253E%250D%250A%253Cscript%253E%250D%250A%253C%2521--%250D%250Avar%2520x%2520%253B%250D%250Ax%253D23%253B%250D%250A%250D%250A//--%253E%250D%250A%253C/script%253E%22%29%29%3B%0D%0A//--%3E%0D%0A%3C/script%3E"));
     </script>
@@ -257,9 +261,9 @@ foreach($fun_return as $nav_child){?>
                       alt="banner Img"
                   />
                   <?php echo $nav_child['cate_name'];?>
-                  <p style="float: right; margin-right: 0px; margin-top: 2px;">
-                    <a href="<?php echo $nav_child['url'];?>"<?php echo $nav_child['target'];?>>
-                      <img src="<?php cmspath('template');?>/images/more_article.jpg" alt="banner Img" />
+                  <p style="float: right; margin-right: 10px; margin-top: 7px;">
+                    <a title="aa" href="<?php echo $nav_child['url'];?>"<?php echo $nav_child['target'];?>>
+                      <img src="<?php cmspath('template');?>/images/more_article.gif" style="border:0" alt="more" />
                     </a>
                   </p>
                 </p>
@@ -269,14 +273,14 @@ foreach($fun_return as $nav_child){?>
  $fun_return=$hot_arc;if(isset($fun_return)&&is_array($fun_return)){
 foreach($fun_return as $v){?>
                 <p>
-                  <img style="display:inline;float:left;" src="<?php cmspath('template');?>/images/article_triangle_tip.png" alt="banner Img" />
+                  <img style="display:inline;float:left;" src="<?php cmspath('template');?>/images/article_triangle_tip.png" alt="文章" />
                   <a title="<?php echo $v['title'];?>"
                       href="<?php echo $v['url'];?>"
                       <?php echo $v['target'];?>
                       <?php if($v['style']){?>
                       style="<?php echo $v['style'];?>"
                       <?php }?>>
-                    <?php echo cn_substr($v['title'],40);?>
+                    <?php echo cn_substr($v['title'],60);?>
                   </a>
                   <span style="display:inline;float:right; margin-right: 10px">
                     <?php echo date('y-m-d',$v['updatetime']);?>
