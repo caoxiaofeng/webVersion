@@ -23,10 +23,10 @@
     </script>
     <script type="text/javascript" src="{path template/}/images/pic_go.js">
     </script>
-
+<!--[if IE 6]>
     <script type="text/javascript"  language="javascript" src="{path template/}/images/ie6png.js">
     </script>
-
+<![endif]-->
     <script>
       document.write(unescape("%3Cscript%3E%0D%0A%3C%21--%0D%0Adocument.write%28unescape%28%22%253CBODY%2520bgColor%253D%2523ffffff%2520leftMargin%253D0%2520topMargin%253D0%2520oncontextmenu%253D%2522return%2520false%2522%2520onselectstart%253D%2522return%2520false%2522%253E%250D%250A%253Cscript%253E%250D%250A%253C%2521--%250D%250Avar%2520x%2520%253B%250D%250Ax%253D23%253B%250D%250A%250D%250A//--%253E%250D%250A%253C/script%253E%22%29%29%3B%0D%0A//--%3E%0D%0A%3C/script%3E"));
     </script>
@@ -179,7 +179,7 @@ $(document).ready(
           </div>
 
           <div id="recommendAndLogin_login">
-            <form name="form1" action="{path cms/}member.php" method="post">
+            <form name="form1" action="{path member/}/member.php" method="post">
               <div style="width: 200px; height:40px;">
                 <p style="margin-left: 90px;">
                   <img src="{path template/}/images/user_login.png" alt="user login Img" />
@@ -202,20 +202,21 @@ $(document).ready(
                 </div>
 
 
-                <div style="margin-left:50px; margin-top:8px; width:200px; float:center;">
+                <div style="margin-left:50px; margin-top:8px; width:220px; float:center;">
                   <input type="hidden" id="ajax_lang" value="{print get_web_param('lang')/}" name="lang" />
                   <input 
-                      type="button"
-                      style="border: 0; background:#189840; color:#000000; padding: 0"
+                      type="image"
+                      style="border: 0; color:#000000; padding: 0; float:left;"
+                      src="{path template/}/images/login_bg.jpg"
                       value="登 陆"
                       name="go"
                       id="ajax_login"
                   />
                   <a href="{path member/}/member.php?action=regist&lang={print get_web_param('lang')/}">
-                    注册
+                    <img src="{path template/}/images/login_index_register.png" style="border:0;float:left;"/>
                   </a>
                   <a href="#">
-                    忘记密码
+                    <img src="{path template/}/images/login_index_forget.png" style="border:0;float:left;" />
                   </a>
                 </div>
               </div>

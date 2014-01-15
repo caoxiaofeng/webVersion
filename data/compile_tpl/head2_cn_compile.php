@@ -64,7 +64,7 @@ foreach($fun_return as $v){?> <a href="<?php echo $v['url'];?>"<?php echo $v['cl
         <ul>
           <li class="<?php echo get_web_param('index_focus');?>">
           <a href="<?php cmspath('index');?>">
-            <span>
+            <span style="color:#177b32;background-image:url(../../<?php cmspath('template');?>/images/nav_index_bg.png);background-position: center;">
               首页
             </span>
           </a>
@@ -78,6 +78,7 @@ foreach($fun_return as $nav_child){?>
             <?php echo $nav_child['cate_name'];?>
           </span>
         </a>
+        <span style="float:left; width:1px">|</span>
       </li>
       <?php 
 }

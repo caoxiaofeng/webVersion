@@ -61,7 +61,7 @@
         <ul>
           <li class="{print get_web_param('index_focus')/}">
           <a href="{path index/}">
-            <span>
+            <span style="color:#177b32;background-image:url(../../{path template/}/images/nav_index_bg.png);background-position: center;">
               首页
             </span>
           </a>
@@ -73,6 +73,7 @@
             {print $nav_child['cate_name']/}
           </span>
         </a>
+        <span style="float:left; width:1px">|</span>
       </li>
       {/loop}
     </ul>
