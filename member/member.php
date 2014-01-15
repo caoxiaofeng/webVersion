@@ -72,7 +72,9 @@ if ($action == 'ajax_login')
     $sql = "update " . DB_PRE . "member set member_count={$m_count} where id=" . $rel[0]['id'];
     unset($rel);
     $GLOBALS['mysql']->query($sql);
+//     $str = $_SESSION['member_user'] . "&nbsp;{$language['member_wel']}&nbsp;<a href=\"" . CMS_SELF . "member/member.php?action=main&lang=" . $lang . "\">" . $language['member_msg28'] . "</a>|<a href=\"" . CMS_SELF . "/member/member.php?action=out&lang=" . $lang . "\">{$language['member_out']}</a>";
     $str = $_SESSION['member_user'] . "&nbsp;{$language['member_wel']}&nbsp;<a href=\"" . CMS_SELF . "member/member.php?action=main&lang=" . $lang . "\">" . $language['member_msg28'] . "</a>|<a href=\"" . CMS_SELF . "/member/member.php?action=out&lang=" . $lang . "\">{$language['member_out']}</a>";
+    
     die("{'login':'1','info':'" . $str . "'}");
 }
 // 登录状态
@@ -81,7 +83,13 @@ if ($action == 'is_ajax_login')
     $joson = '';
     if (! empty($_SESSION['member_user']) && ! empty($_SESSION['member_id']) && ! empty($_SESSION['member_login']))
     {
-        $str = "<p><br>" . $_SESSION['member_user'] . "&nbsp;{$language['member_wel']}&nbsp;<a href=\"" . CMS_SELF . "member/member.php?action=main&lang=" . $lang . "\">" . $language['member_msg28'] . "</a>|<a href=\"" . CMS_SELF . "member/member.php?action=out&lang=" . $lang . "\">{$language['member_out']}</a></p>";
+        $str = "<p>" . "尊敬的" . $_SESSION['member_user'] . "，您好！&nbsp;欢迎您访问中国氟化工网站！";
+        $str = $str . "<br><br>&nbsp;<a href=\"" . CMS_SELF . "member/member.php?action=main&lang=" . $lang . "\">" . "<img style=\"border:0\" src=\"".CMS_SELF."template/default/images/login_myspace.jpg\" />" . "</a>";
+        $str = $str . "&nbsp; <a href=\"" . CMS_SELF . "member/member.php?action=out&lang=" . $lang . "\">"."<img style=\"border:0\" src=\"".CMS_SELF."template/default/images/login_myexit.jpg\" />"."</a></p>";
+        $str = $str . "<p>" . "<a href=\"" . CMS_SELF . "member/member.php?action=out&lang=" . $lang . "\">"."<img style=\"border:0\" src=\"".CMS_SELF."template/default/images/login_person_data.png\" />"."</a> &nbsp; ";
+        $str = $str . "<a href=\"" . CMS_SELF . "member/member.php?action=out&lang=" . $lang . "\">"."<img style=\"border:0\" src=\"".CMS_SELF."template/default/images/login_bookmark.png\" />"."</a> &nbsp; ";
+        $str = $str . "<a href=\"" . CMS_SELF . "member/member.php?action=out&lang=" . $lang . "\">"."<img style=\"border:0\" src=\"".CMS_SELF."template/default/images/login_read_resume.png\" />"."</a></p>";
+        
         $joson = "{'login':'1','info':'" . $str . "'}";
     }
     die($joson);
