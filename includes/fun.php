@@ -1581,7 +1581,7 @@ function get_position($parent, $cate, $path, $list_php = '')
     foreach ($cate as $k => $v) {
         if ($v['id'] == $parent) {
             $cate_path = ($v['cate_html'] && $_confing['web_html'][0]) ? $path . $v['cate_fold_name'] . '.html' : $path . $list_php . '?id=' . $v['id'];
-            $str = "<a href=\"{$cate_path}\">{$v['cate_name']}</a> > ";
+            $str = "<a href=\"{$cate_path}\">{$v['cate_name']}</a> >> ";
             get_position($v['cate_parent'], $cate, $path, $list_php);
             break;
         }

@@ -397,14 +397,14 @@ function position()
                 }
             }
             
-            echo "<a href=\"" . $index_str . "\">" . $GLOBALS['language']['index'] . "</a> > ";
+            echo "<a href=\"" . $index_str . "\">" . $GLOBALS['language']['index'] . "</a> >> ";
             if ($cate_info['cate_channel'] > '1') {
                 get_position($parent, $cate_list, $path, $list_php);
             }
             echo $ps;
         }
     } else {
-        echo "<a href=\"" . $index_str . "\">" . $GLOBALS['language']['index'] . "</a> > ";
+        echo "<a href=\"" . $index_str . "\">" . $GLOBALS['language']['index'] . "</a> >> ";
     }
 }
 

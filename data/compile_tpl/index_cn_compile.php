@@ -179,7 +179,7 @@ foreach($fun_return as $nav_child){?>
           </div>
 
           <div id="recommendAndLogin_login">
-            <form name="form1" action="<?php cmspath('member');?>/member.php" method="post">
+            <form name="form1"  method="post">
               <div style="width: 200px; height:40px;">
                 <p style="margin-left: 90px;">
                   <img src="<?php cmspath('template');?>/images/user_login.png" alt="user login Img" />

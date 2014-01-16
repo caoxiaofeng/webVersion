@@ -63,10 +63,12 @@ center;     color: #000000;     margin-top: 0px;     margin-bottom: 0px; } */
 }
 
 .mainPageStyle #position {
-	background: clear;
-	/*width: 1024px;*/
-	height: 20px;
+	background: #f9f9f9;
+	folat:left;
+	height: 40px;
 	text-align: left;
+	float:block;
+	font-size:12px;
 }
 
 .mainPageStyle #search {

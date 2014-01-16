@@ -1,5 +1,4 @@
-<div>
-</div>
+
 <!--
   <div class="foot"> <div class="foot_left"></div> <div class="foot_right"> <div class="foot_nav"> <?php 
  $fun_return=nav_bottom();if(isset($fun_return)&&is_array($fun_return)){
@@ -9,8 +8,8 @@ foreach($fun_return as $v){?> <a href="<?php echo $v['url'];?>" title="<?php ech
   href="http://www.bainfo.com" target="_blank">百川资讯</a> 版权所有 </p> </div> <div class="clear"></div>
   </div>
 -->
-
-<div style="margin: 0px auto; width: 1000px; background:#e8f4f8; height:100px; margin-top:30px;margin-bottom:30px;">
+<div class="mainPageStyle">
+<div style="float:left; width: 1000px; background:#e8f4f8; height:100px; margin-top:30px;margin-bottom:30px;">
   <div style="width:180px;margin-top:36px; text-align:right; display:inline; vertical-align:middle; float:left;">
     <span style="font-size:22px; font-style:italic;color:#b1c9d4; margin-right:10px;">
       中国氟化工网
@@ -47,4 +46,6 @@ foreach($fun_return as $v){?> <a href="<?php echo $v['url'];?>" title="<?php ech
       <input type="text" name="word" id="textfield" style="width:80px; height:20px;"/>
     </form>
   </div>
+</div>
+
 </div>
