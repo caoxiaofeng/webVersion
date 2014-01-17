@@ -77,6 +77,7 @@ class tpl
         $preg_arr[] = '/\{returnImage\s+(.*)\/\}/isU'; // 输出产品价格图表
         $preg_arr[] = '/\{right_ad\s*(.*)\/\}/isU'; // 右侧广告
         $preg_arr[] = '/\{getPostParm\s+(.*)\/}/isU';  // 
+        $preg_arr[] = '/\{login_ad\s*(.*)\/\}/isU'; // 右侧广告
         
         $replace_arr[] = "\\1";
         $replace_arr[] = "<?php \n}\n}?>";
@@ -97,6 +98,7 @@ class tpl
         $replace_arr[] = "<?php generateChart(\\1); ?>";
         $replace_arr[] = "<?php echo right_ad('\\1');?>";
         $replace_arr[] = "<?php \$\\1=\$_POST['product_id'];?>";
+        $replace_arr[] = "<?php echo login_ad('\\1');?>";
         
         ksort($preg_arr);
         ksort($replace_arr);

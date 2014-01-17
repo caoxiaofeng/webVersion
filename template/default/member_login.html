@@ -41,35 +41,39 @@
         <div style="width: 1000px;float:left;" >
           <div style="width:50%; float:left;">
             <div style="float:right;width:354px;">
+             <br>
+             <br>
+             <p>此信息为普通会员信息，只要注册会员都可以免费阅览。 如果您还没有注册成为会员，请由此进入免费注册</p>
+             <br>
+             <br>
+             <p>
+             	<img src="{path template/}/images/login_member_tip.png" />
+             </p>
+             <br>
               <form name="maininfo" method="post" action="?action=save_login&lang={print $lang/}" class="form">
                 <div class="clear">
                 </div>
-                <table cellpadding="0" cellspacing="0" width="100%" id="reg_tb">
+                <table cellpadding="0" cellspacing="0" width="80%" id="reg_tb">
                   <tbody>
                     <tr>
-                      <td style="width: 20%; text-align: right">
-                        用户名：
+                      <td style="width: 15%; text-align: left">
+                        帐 号：
                       </td>
-                      <td style="width: 80%">
-                        <input name="user" style="width: 60%; padding: 3px 0;" value="" />
-                        <span style="color: red; padding: 0 8px;">
-                          *
-                        </span>
+                      <td style="width: 50%;">
+                        <input name="user" style="width: 90%; padding: 3px 0; " value="" />
                       </td>
+                      <th rowspan="2" style="background:#ffffff; text-align: left"><input type="image" style="border: 0" src="{path template/}/images/login_button.png" name="submit" /></th>
                     </tr>
                     <tr>
-                      <td style="width: 20%; text-align: right">
-                        登陆密码：
+                      <td style="width: 15%; text-align: left">
+                        密 码：
                       </td>
-                      <td style="width: 80%">
-                        <input name="password" type="password" style="width: 60%; padding: 3px 0;" value="" />
-                        <span style="color: red; padding: 0 8px;">
-                          *
-                        </span>
+                      <td style="width: 50%">
+                        <input name="password" type="password" style="width: 90%; padding: 3px 0;" value="" />
                       </td>
                     </tr>
                     {if $is_code}
-                    <tr>
+                    <!--<tr>
                       <td style="width: 20%; text-align: right">
                         验证码：
                       </td>
@@ -88,20 +92,19 @@
                         <div class="clear">
                         </div>
                       </td>
-                    </tr>
+                    </tr>-->
                     {/if}
+                    
                   </tbody>
                 </table>
-                <div class="btn" style="margin-top: 0; margin-left: 80px; text-align: left">
-                  <input type="image" style="border: 0" src="{path template/}/images/login_input.gif" name="submit" />
-                </div>
               </form>
             </div>
           </div>
 
           <!-- 右侧广告 -->
           <div style="width:50%; float:left;">
-            {right_ad1/}
+          <div style="margin-left:10px;margin-top:10px;">{login_ad4/}</div>
+            
           </div>
         </div>
       </div>

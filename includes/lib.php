@@ -573,6 +573,31 @@ function right_ad($index)
     include (CMS_PATH . 'data/flash_ad/ad_' . $style . '/flash_ad.php');
 }
 
+function login_ad($index)
+{
+    global $lang;
+    if (empty($lang)) {
+        return;
+    }
+
+    $cate_id = 2; // 使用默认
+
+    $rel_info = array(
+        0 => array(
+            'id' => 1,
+            'flash_width' => 350,
+            'flash_height' => 300,
+            'flash_style' => 2,
+            'lang' => 1,
+            'cate_id' => 2
+        )
+    );
+    $index = empty($index) ? - 1 : - $index;
+    $rel = $GLOBALS['mysql']->fetch_asc("select*from " . DB_PRE . "flash_ad where lang='" . $lang . "' and cate_id=" . $cate_id . " and pic_order =" . $index . " limit 1");
+    $style = isset($rel_info[0]['flash_style']) ? $rel_info[0]['flash_style'] : 1;
+    include (CMS_PATH . 'data/flash_ad/ad_' . $style . '/flash_ad.php');
+}
+
 /**
  * 指定输出栏目链接【常用于更多或是链接地址】
  *

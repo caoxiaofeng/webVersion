@@ -138,20 +138,22 @@ elseif ($action == 'save_login')
 {
     $user = fl_html(fl_value($_POST['user']));
     $password = fl_html(fl_value($_POST['password']));
-    $code = $_POST['code'];
-    if (! empty($_sys['safe_open']))
-    {
-        foreach ($_sys['safe_open'] as $k => $v)
-        {
-            if ($v == '2')
-            {
-                if ($code != $_SESSION['code'])
-                {
-                    die("<script type=\"text/javascript\">alert('{$language['member_msg2']}');history.go(-1);</script>");
-                }
-            }
-        }
-    }
+    
+    //不用验证码
+    //$code = $_POST['code'];
+//     if (! empty($_sys['safe_open']))
+//     {
+//         foreach ($_sys['safe_open'] as $k => $v)
+//         {
+//             if ($v == '2')
+//             {
+//                 if ($code != $_SESSION['code'])
+//                 {
+//                     die("<script type=\"text/javascript\">alert('{$language['member_msg2']}');history.go(-1);</script>");
+//                 }
+//             }
+//         }
+//     }
     if (empty($user) || empty($password))
     {
         die("<script type=\"text/javascript\">alert('{$language['member_smg3']}');history.go(-1);</script>");
