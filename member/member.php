@@ -133,6 +133,32 @@ if ($action == 'login')
     $tpl->assign('position', get_dy_position($url)); // 位置
     $tpl->assign('is_code', $is_code);
     $tpl->display('member_login');
+}
+// 普通用户点击文章登录
+if ($action == 'login_common')
+{
+    $url = $language['member_msg29'];
+    $is_code = 0;
+    if (! empty($_sys['safe_open']))
+    {
+        $is_code = in_array('2', $_sys['safe_open']) ? 1 : 0;
+    }
+    $tpl->assign('position', get_dy_position($url)); // 位置
+    $tpl->assign('is_code', $is_code);
+    $tpl->display('member_login');
+}
+// VIP用户点击文章登录
+if ($action == 'login_vip')
+{
+    $url = $language['member_msg29'];
+    $is_code = 0;
+    if (! empty($_sys['safe_open']))
+    {
+        $is_code = in_array('2', $_sys['safe_open']) ? 1 : 0;
+    }
+    $tpl->assign('position', get_dy_position($url)); // 位置
+    $tpl->assign('is_code', $is_code);
+    $tpl->display('member_login');
 } // 用户登录验证
 elseif ($action == 'save_login')
 {

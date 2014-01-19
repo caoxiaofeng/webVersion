@@ -42,11 +42,19 @@ $key_arr = empty($content['keywords']) ? '' : explode(',', $content['keywords'])
 $relave_key = $key_arr[0];
 
 $view_is = isset($_SESSION['member_purview']) ? $_SESSION['member_purview'] : ''; // 访问权限
-if ($content['purview'] != $view_is && $content['purview']) {
-    die($language['msg_info7'] . "【<a href=\"index.php?lang={$lang}\">back</a>】");
-}
-if ($content['verify']) {
-    die($language['msg_info8'] . "<a href=\"index.php?lang={$lang}\">【Back】</a>");
+if($content['accessLevel'] != 0)
+{
+    if($content['accessLevel'] == 1 && $view_is < 1)
+    {
+        $url = '/member/member.php?action=login_common&lang=' . $lang;
+        echo "<SCRIPT LANGUAGE=\"javascript\">window.location.href='$url'</SCRIPT>";
+        break;
+    }else if($content['accessLevel'] == 2 && $view_is < 2)
+    {
+        $url = '/member/member.php?action=login_vip&lang=' . $lang;
+        echo "<SCRIPT LANGUAGE=\"javascript\">window.location.href='$url'</SCRIPT>";
+        break;
+    }
 }
 
 $tpl->template_dir = TP_PATH . $_confing['web_template'] . '/'; // 模板路径

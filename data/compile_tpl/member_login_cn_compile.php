@@ -3,6 +3,7 @@
     PUBLIC
     "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -24,6 +25,192 @@
     <?php $this->display('head2',1,1);?>
     <div class="mainPageStyle" style="padding:0;">
 
+      <!--VIP用户登录-->
+      <?php if($act=='login_vip'){?>
+      <div id="position">
+        <p>
+          <img src="<?php cmspath('template');?>/images/location_tip.png"/>
+          <span>
+            您现在的位置:<?php position(); ?>用户登录
+          </span>
+        </p>
+      </div>
+            <div style="width: 1000px;float:left;" >
+        <!-- 左侧广告 -->
+        <div style="width:50%; float:left;">
+          <div style="margin-right:10px;margin-top:10px; float:right;">
+            <?php echo login_ad('4');?>
+          </div>
+        </div>
+        <div style="width:50%; float:left;">
+          <div style="float:left;width:354px; margin-left:10px;">
+            <br>
+            <br>
+            <p>
+              此信息为VIP会员信息，只有申请为VIP会员才可以阅览。 如果您还没有成为VIP会员，请由此进入
+              <a href="<?php cmspath('member');?>/member.php?action=regist&lang=<?php echo get_web_param('lang');?>">
+                <span style="color:#2038eb;">
+                  VIP会员申请>>
+                </span>
+              </a>
+            </p>
+            <br>
+            <br>
+            <div style="background: #f7fafc; border:2px solid #e6eff4;">
+              <p  style="text-align:center">
+                <img src="<?php cmspath('template');?>/images/regist_common.png" />
+              </p>
+              <br>
+              <form name="maininfo" method="post" action="?action=save_login&lang=<?php echo $lang;?>" class="form">
+                <div class="clear">
+                </div>
+                <table cellpadding="0" cellspacing="0" width="80%" id="reg_tb">
+                  <tbody>
+                    <tr>
+                      <td style="width: 40%; text-align: right">
+                        帐 号：
+                      </td>
+                      <td style="width: 60%;">
+                        <input name="user" style="width: 80%; padding: 3px 0; " value="" />
+                      </td>
+                      
+                    </tr>
+                    <tr>
+                      <td style="width: 40%; text-align: right">
+                        密 码：
+                      </td>
+                      <td style="width: 60%">
+                        <input name="password" type="password" style="width: 80%; padding: 3px 0;" value="" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 25%; text-align: right">
+                         <input 
+                            type="reset"
+                            style="border: 0; width:60px;"
+                            src="<?php cmspath('template');?>/images/login_button.png"
+                            name="submit"
+                        />
+                      </td>
+                      <td style="width: 75%">
+                         <input 
+                            type="image"
+                            style="border:0;margin-left:30px;"
+                            src="<?php cmspath('template');?>/images/login_bg.jpg"
+                            name="submit"
+                        />
+                      </td>
+                    </tr>
+                    <?php if($is_code){?>
+                    <!--
+                      <tr> <td style="width: 20%; text-align: right"> 验证码： </td> <td style="width: 80%"> <input
+                      name="code" value="" style="width: 50px; display: block; float: left; margin-right: 3px; display:
+                      inline" /> <img style="display: block; float: left; cursor: pointer" src="<?php cmspath('                      includes');?>/code.php" border="0" id="code" /> <div class="clear"> </div> </td> </tr>
+                    -->
+                    <?php }?>
+                  </tbody>
+                </table>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <?php }?>
+      
+      <!--普通用户登录-->
+      <?php if($act=='login_common'){?>
+      <div id="position">
+        <p>
+          <img src="<?php cmspath('template');?>/images/location_tip.png"/>
+          <span>
+            您现在的位置:<?php position(); ?>用户登录
+          </span>
+        </p>
+      </div>
+      <div style="width: 1000px;float:left;" >
+        <!-- 左侧广告 -->
+        <div style="width:50%; float:left;">
+          <div style="margin-right:10px;margin-top:10px; float:right;">
+            <?php echo login_ad('4');?>
+          </div>
+        </div>
+        <div style="width:50%; float:left;">
+          <div style="float:left;width:354px; margin-left:10px;">
+            <br>
+            <br>
+            <p>
+              此信息为普通会员信息，只要注册会员都可以免费阅览。 如果您还没有注册成为会员，请由此进入
+              <a href="<?php cmspath('member');?>/member.php?action=regist&lang=<?php echo get_web_param('lang');?>">
+                <span style="color:#2038eb;">
+                  会员注册>>
+                </span>
+              </a>
+            </p>
+            <br>
+            <br>
+            <div style="background: #f7fafc; border:2px solid #e6eff4;">
+              <p  style="text-align:center">
+                <img src="<?php cmspath('template');?>/images/regist_common.png" />
+              </p>
+              <br>
+              <form name="maininfo" method="post" action="?action=save_login&lang=<?php echo $lang;?>" class="form">
+                <div class="clear">
+                </div>
+                <table cellpadding="0" cellspacing="0" width="80%" id="reg_tb">
+                  <tbody>
+                    <tr>
+                      <td style="width: 40%; text-align: right">
+                        帐 号：
+                      </td>
+                      <td style="width: 60%;">
+                        <input name="user" style="width: 80%; padding: 3px 0; " value="" />
+                      </td>
+                      
+                    </tr>
+                    <tr>
+                      <td style="width: 40%; text-align: right">
+                        密 码：
+                      </td>
+                      <td style="width: 60%">
+                        <input name="password" type="password" style="width: 80%; padding: 3px 0;" value="" />
+                      </td>
+                    </tr>
+                    <tr>
+                      <td style="width: 25%; text-align: right">
+                         <input 
+                            type="reset"
+                            style="border: 0; width:60px;"
+                            src="<?php cmspath('template');?>/images/login_button.png"
+                            name="submit"
+                        />
+                      </td>
+                      <td style="width: 75%">
+                         <input 
+                            type="image"
+                            style="border:0;margin-left:30px;"
+                            src="<?php cmspath('template');?>/images/login_bg.jpg"
+                            name="submit"
+                        />
+                      </td>
+                    </tr>
+                    <?php if($is_code){?>
+                    <!--
+                      <tr> <td style="width: 20%; text-align: right"> 验证码： </td> <td style="width: 80%"> <input
+                      name="code" value="" style="width: 50px; display: block; float: left; margin-right: 3px; display:
+                      inline" /> <img style="display: block; float: left; cursor: pointer" src="<?php cmspath('                      includes');?>/code.php" border="0" id="code" /> <div class="clear"> </div> </td> </tr>
+                    -->
+                    <?php }?>
+                  </tbody>
+                </table>
+              </form>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <?php }?>
       <!--用户登录-->
       <?php if($act=='login'){?>
       <div id="position">
@@ -41,15 +228,22 @@
         <div style="width: 1000px;float:left;" >
           <div style="width:50%; float:left;">
             <div style="float:right;width:354px;">
-             <br>
-             <br>
-             <p>此信息为普通会员信息，只要注册会员都可以免费阅览。 如果您还没有注册成为会员，请由此进入免费注册</p>
-             <br>
-             <br>
-             <p>
-             	<img src="<?php cmspath('template');?>/images/login_member_tip.png" />
-             </p>
-             <br>
+              <br>
+              <br>
+              <p>
+                此信息为普通会员信息，只要注册会员都可以免费阅览。 如果您还没有注册成为会员，请由此进入
+                <a href="<?php cmspath('member');?>/member.php?action=regist&lang=<?php echo get_web_param('lang');?>">
+                  <span style="color:#2038eb;">
+                    免费注册>>
+                  </span>
+                </a>
+              </p>
+              <br>
+              <br>
+              <p>
+                <img src="<?php cmspath('template');?>/images/login_member_tip.png" />
+              </p>
+              <br>
               <form name="maininfo" method="post" action="?action=save_login&lang=<?php echo $lang;?>" class="form">
                 <div class="clear">
                 </div>
@@ -62,7 +256,14 @@
                       <td style="width: 50%;">
                         <input name="user" style="width: 90%; padding: 3px 0; " value="" />
                       </td>
-                      <th rowspan="2" style="background:#ffffff; text-align: left"><input type="image" style="border: 0" src="<?php cmspath('template');?>/images/login_button.png" name="submit" /></th>
+                      <th rowspan="2" style="background:#ffffff; text-align: left">
+                        <input 
+                            type="image"
+                            style="border: 0"
+                            src="<?php cmspath('template');?>/images/login_button.png"
+                            name="submit"
+                        />
+                      </th>
                     </tr>
                     <tr>
                       <td style="width: 15%; text-align: left">
@@ -73,148 +274,284 @@
                       </td>
                     </tr>
                     <?php if($is_code){?>
-                    <!--<tr>
-                      <td style="width: 20%; text-align: right">
-                        验证码：
-                      </td>
-                      <td style="width: 80%">
-                        <input 
-                            name="code"
-                            value=""
-                            style="width: 50px; display: block; float: left; margin-right: 3px; display: inline"
-                        />
-                        <img 
-                            style="display: block; float: left; cursor: pointer"
-                            src="<?php cmspath('includes');?>/code.php"
-                            border="0"
-                            id="code"
-                        />
-                        <div class="clear">
-                        </div>
-                      </td>
-                    </tr>-->
+                    <!--
+                      <tr> <td style="width: 20%; text-align: right"> 验证码： </td> <td style="width: 80%"> <input
+                      name="code" value="" style="width: 50px; display: block; float: left; margin-right: 3px; display:
+                      inline" /> <img style="display: block; float: left; cursor: pointer" src="<?php cmspath('                      includes');?>/code.php" border="0" id="code" /> <div class="clear"> </div> </td> </tr>
+                    -->
+
                     <?php }?>
-                    
                   </tbody>
                 </table>
               </form>
             </div>
           </div>
-
           <!-- 右侧广告 -->
           <div style="width:50%; float:left;">
-          <div style="margin-left:10px;margin-top:10px;"><?php echo login_ad('4');?></div>
-            
+            <div style="margin-left:10px;margin-top:10px;">
+              <?php echo login_ad('4');?>
+            </div>
+
           </div>
         </div>
       </div>
+
       <?php }?>
-      
       <!--用户注册-->
       <?php if($act=='regist'){?>
-      <div class="mainPageStyle" id="middleBanner">
+      <br>
+      <div id="middleBanner">
         <img src="<?php cmspath('template');?>/images/middle_banner.jpg" alt="banner Img" />
       </div>
-      <h2 class="user_position">
-        <span>
-          当前位置:<?php echo $position;?>会员注册
-        </span>
-      </h2>
-      <div class="reg_contain">
-        <div id="reg_div">
+      <br>
+      <div id="position">
+        <p>
+          <img src="<?php cmspath('template');?>/images/location_tip.png"/>
+          <span>
+            您现在的位置:<?php position(); ?>会员注册
+          </span>
+        </p>
+      </div>
+      <div style="margin:0 auto;width: 711px;background: #ffffff; ">
+        <div style="text-align:left">
+          <img src="<?php cmspath('template');?>/images/register_top.png"/>
+        </div>
+        <div>
+          <p>
+            感谢您准备注册成为我们的会员，为了能够及时获得我们的服务，请认真填写下面信息。
+          </p>
+          <p>
+            <span style="color:red;">
+              请注意，标有“*”的项目是必填项目，请不要忘记！
+            </span>
+          </p>
+          <br>
+          <br>
+        </div>
+        <div class="clear">
+        </div>
+
+        <div style="background:#fafafa;">
           <form name="maininfo" method="post" enctype="multipart/form-data" action="?action=save_reg" class="form">
             <div class="clear">
             </div>
             <table cellpadding="0" cellspacing="0" width="100%" id="reg_tb">
               <tbody>
                 <tr>
-                  <td style="width: 20%; text-align: right">
-                    用户名：
+                  <td style="width: 5%; text-align:center">
+                    <img src="<?php cmspath('template');?>/images/article_title_circle.png"/>
                   </td>
-                  <td style="width: 80%">
-                    <input name="user" style="width: 40%; padding: 3px 0;" value="" />
-                    <span style="color: red; padding: 0 8px;">
-                      *
+                  <td colspan="2">
+                    <span style="font-size:14px;color:green;">
+                      注册信息
                     </span>
                   </td>
                 </tr>
                 <tr>
-                  <td style="width: 20%; text-align: right">
-                    昵称：
-                  </td>
-                  <td style="width: 80%">
-                    <input name="nich" style="width: 40%; padding: 3px 0;" value="" />
+                  <td style="width: 5%; text-align: right">
                     <span style="color: red; padding: 0 8px;">
                       *
                     </span>
                   </td>
-                </tr>
-                <tr>
-                  <td style="width: 20%; text-align: right">
-                    登陆密码：
-                  </td>
-                  <td style="width: 80%">
-                    <input type="password" name="password" style="width: 40%; padding: 3px 0;" value="" />
-                    <span style="color: red; padding: 0 8px;">
-                      *
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="width: 20%; text-align: right">
-                    确认密码：
-                  </td>
-                  <td style="width: 80%">
-                    <input type="password" name="password2" style="width: 40%; padding: 3px 0;" value="" />
-                    <span style="color: red; padding: 0 8px;">
-                      *
-                    </span>
-                  </td>
-                </tr>
-                <tr>
-                  <td style="width: 20%; text-align: right">
-                    电子邮箱：
+                  <td style="width: 10%; ">
+                    E-email：
                   </td>
                   <td style="width: 80%">
                     <input name="mail" style="width: 40%; padding: 3px 0;" value="" />
                   </td>
                 </tr>
-                <?php if($is_code){?>
                 <tr>
-                  <td style="width: 20%; text-align: right">
-                    验证码：
+                  <td style="width: 5%; text-align: right">
+                    <span style="color: red; padding: 0 8px;">
+                      *
+                    </span>
+                  </td>
+                  <td style="width: 10%;">
+                    用户名：
                   </td>
                   <td style="width: 80%">
-                    <input 
-                        name="code"
-                        value=""
-                        style="width: 50px; display: block; float: left; margin-right: 3px; display: inline"
-                    />
-                    <img 
-                        src="<?php cmspath('includes');?>/code.php"
-                        name="code"
-                        border="0"
-                        id="code"
-                        style="display: block; float: left; cursor: pointer"
-                    />
-                    <div class="clear">
-                    </div>
+                    <input name="user" style="width: 40%; padding: 3px 0;" value="" />
                   </td>
                 </tr>
+                <tr>
+                  <td style="width: 5%; text-align: right">
+                    <span style="color: red; padding: 0 8px;">
+                      *
+                    </span>
+                  </td>
+                  <td style="width: 10%;">
+                    密码：
+                  </td>
+                  <td style="width: 80%">
+                    <input type="password" name="password" style="width: 40%; padding: 3px 0;" value="" />
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width: 5%; text-align: right">
+                    <span style="color: red; padding: 0 8px;">
+                      *
+                    </span>
+                  </td>
+                  <td style="width: 10%;">
+                    确认密码：
+                  </td>
+                  <td style="width: 80%">
+                    <input type="password" name="password2" style="width: 40%; padding: 3px 0;" value="" />
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width: 5%; text-align: right">
+                    <span style="color: red; padding: 0 8px;">
+                      *
+                    </span>
+                  </td>
+                  <td style="width: 10%;">
+                    常住区域：
+                  </td>
+                  <td style="width: 80%">
+                    <input name="nich" style="width: 40%; padding: 3px 0;" value="" />
+                  </td>
+                </tr>
+                <!--
+                  <tr> <td style="width: 20%; text-align: right"> 昵称： </td> <td style="width: 80%"> <input name="nich"
+                  style="width: 40%; padding: 3px 0;" value="" /> <span style="color: red; padding: 0 8px;"> * </span>
+                  </td> </tr>
+                -->
+                <?php if($is_code){?>
+                <!--
+                  <tr> <td style="width: 20%; text-align: right"> 验证码： </td> <td style="width: 80%"> <input name="code"
+                  value="" style="width: 50px; display: block; float: left; margin-right: 3px; display: inline" /> <img
+                  src="<?php cmspath('includes');?>/code.php" name="code" border="0" id="code" style="display: block; float: left;
+                  cursor: pointer" /> <div class="clear"> </div> </td> </tr>
+                -->
                 <?php }?>
+                <tr>
+                  <td colspan="3">
+                    &nbsp;
+                  </td>
+                  <td colspan="3">
+                    &nbsp;
+                  </td>
+                  <td colspan="3">
+                    &nbsp;
+                  </td>
+                </tr>
+                <tr>
+                  <td style="width: 5%; text-align:center">
+                    <img src="<?php cmspath('template');?>/images/article_title_circle.png"/>
+                  </td>
+                  <td colspan="2">
+                    <span style="font-size:14px;color:green;">
+                      用户信息
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="width: 15%; text-align: right">
+                    姓名(或昵称)：
+                  </td>
+                  <td style="width: 80%">
+                    <input name="nich" style="width: 40%; padding: 3px 0;" value="" />
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="width: 15%; text-align: right">
+                    称谓：
+                  </td>
+                  <td style="width: 80%">
+                    <input name="user" style="width: 40%; padding: 3px 0;" value="" />
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="width: 15%; text-align: right">
+                    手机：
+                  </td>
+                  <td style="width: 80%">
+                    <input type="password" name="password" style="width: 40%; padding: 3px 0;" value="" />
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="width: 15%; text-align: right">
+                    联系地址：
+                  </td>
+                  <td style="width: 80%">
+                    <input type="password" name="password2" style="width: 40%; padding: 3px 0;" value="" />
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="width: 15%; text-align: right">
+                    邮编：
+                  </td>
+                  <td style="width: 80%">
+                    <input name="nich" style="width: 40%; padding: 3px 0;" value="" />
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="width: 15%; text-align: right">
+                    职务：
+                  </td>
+                  <td style="width: 80%">
+                    <input name="nich" style="width: 40%; padding: 3px 0;" value="" />
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2" style="width: 15%; text-align: right">
+                    学历：
+                  </td>
+                  <td style="width: 80%">
+                    <input name="nich" style="width: 40%; padding: 3px 0;" value="" />
+                  </td>
+                </tr>
               </tbody>
             </table>
+            <div>
+              <p>
+                你的所有信息均记过加密保护，我们会保障你的信息安全并尊重你的个人隐私
+              </p>
+              <p>
+                你已经阅读并同意 [
+                <span style="color:red;">
+                  会员隐私保护条例
+                </span>
+                ]
+              </p>
+              <br>
+              <br>
+            </div>
             <div class="btn" style="height: 40px; line-height: 40px; margin-left: 180px; text-align: left">
               <input type="hidden" value="<?php echo $lang;?>" name="lang" />
+              <input type="reset" name="Reset" value="重 填"/>
               <input type="image" style="border: 0" src="<?php cmspath('template');?>/images/reg_input.gif" name="submit" />
               <a href="member.php?action=login&lang=<?php echo $lang;?>" style="padding-bottom: 10px;">
                 已经注册！立即登录
               </a>
+              <button>
+              </button>
             </div>
           </form>
         </div>
       </div>
-
+      <!--
+        <div class="reg_contain"> <div id="reg_div"> <form name="maininfo" method="post" enctype="multipart/form-data"
+        action="?action=save_reg" class="form"> <div class="clear"> </div> <table cellpadding="0" cellspacing="0"
+        width="100%" id="reg_tb"> <tbody> <tr> <td style="width: 20%; text-align: right"> 用户名： </td> <td style="width:
+        80%"> <input name="user" style="width: 40%; padding: 3px 0;" value="" /> <span style="color: red; padding: 0
+        8px;"> * </span> </td> </tr> <tr> <td style="width: 20%; text-align: right"> 昵称： </td> <td style="width: 80%">
+        <input name="nich" style="width: 40%; padding: 3px 0;" value="" /> <span style="color: red; padding: 0 8px;"> *
+        </span> </td> </tr> <tr> <td style="width: 20%; text-align: right"> 登陆密码： </td> <td style="width: 80%"> <input
+        type="password" name="password" style="width: 40%; padding: 3px 0;" value="" /> <span style="color: red;
+        padding: 0 8px;"> * </span> </td> </tr> <tr> <td style="width: 20%; text-align: right"> 确认密码： </td> <td
+        style="width: 80%"> <input type="password" name="password2" style="width: 40%; padding: 3px 0;" value="" />
+        <span style="color: red; padding: 0 8px;"> * </span> </td> </tr> <tr> <td style="width: 20%; text-align: right">
+        电子邮箱： </td> <td style="width: 80%"> <input name="mail" style="width: 40%; padding: 3px 0;" value="" /> </td>
+        </tr> <?php if($is_code){?> <tr> <td style="width: 20%; text-align: right"> 验证码： </td> <td style="width: 80%"> <input
+        name="code" value="" style="width: 50px; display: block; float: left; margin-right: 3px; display: inline" />
+        <img src="<?php cmspath('includes');?>/code.php" name="code" border="0" id="code" style="display: block; float: left;
+        cursor: pointer" /> <div class="clear"> </div> </td> </tr> <?php }?> </tbody> </table> <div class="btn"
+        style="height: 40px; line-height: 40px; margin-left: 180px; text-align: left"> <input type="hidden"
+        value="<?php echo $lang;?>" name="lang" /> <input type="image" style="border: 0" src="<?php cmspath('        template');?>/images/reg_input.gif" name="submit" /> <a href="member.php?action=login&lang=<?php echo $lang;?>"
+        style="padding-bottom: 10px;"> 已经注册！立即登录 </a> </div> </form> </div> </div>
+      -->
       <?php }?>
       <!--用户中心主要页面-->
       <?php if($act=='main'){?>
@@ -249,7 +586,6 @@
             <?php echo $login_count;?>
           </div>
           <!--登陆信息-->
-
           <div class="member_info">
             <h2>
               用户中心统计
@@ -265,7 +601,6 @@
         <div class="clear">
         </div>
       </div>
-
       <?php }?>
       <!--用户信息-->
       <?php if($act=='info'){?>
@@ -714,7 +1049,6 @@
         <div class="clear">
         </div>
       </div>
-
       <?php }?>
       <!--添加咨询-->
       <?php if($act=='add_ask'){?>
@@ -772,7 +1106,6 @@
         <div class="clear">
         </div>
       </div>
-
       <?php }?>
       <!--用户咨询列表-->
       <?php if($act=='ask'){?>
@@ -842,7 +1175,6 @@ foreach($fun_return as $v){?>
         <div class="clear">
         </div>
       </div>
-
       <?php }?>
       <!--咨询修改-->
       <?php if($act=='xg_ask'){?>
@@ -902,7 +1234,6 @@ foreach($fun_return as $v){?>
         <div class="clear">
         </div>
       </div>
-
       <?php }?>
       <!--显示咨询-->
       <?php if($act=='show_ask'){?>
@@ -964,7 +1295,6 @@ foreach($fun_return as $v){?>
         <div class="clear">
         </div>
       </div>
-
       <?php }?>
       <!--用户收藏-->
       <?php if($act=='coll'){?>
@@ -1016,7 +1346,6 @@ foreach($fun_return as $v){?>
                 <?php echo $page;?>
               </ul>
             </div>
-
           </form>
         </div>
         <div class="clear">
@@ -1094,7 +1423,6 @@ foreach($fun_return as $v){?>
       </div>
       <?php }?>
     </div>
-
     <?php $this->display('foot',1,1);?>
   </body>
 </html>

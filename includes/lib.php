@@ -166,7 +166,7 @@ function get_content($cate_id, $table, $cat_id)
         $file_arr['url'] = $file_url2;
         $rel[0]['down'] = $file_arr;
     }
-    
+ 
     $prev_id = $cate_id - 1;
     $sql = "select id,c_order from " . DB_PRE . "maintb where category={$cat_id} and id>{$cate_id} order by id asc limit 0,1";
     $rel[0]['prev'] = '';
