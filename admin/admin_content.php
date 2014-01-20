@@ -51,6 +51,7 @@ elseif ($action == 'save_content') {
     }
     $id = intval($_POST['id']);
     $title = $_POST['title'];
+    $accessLevel = $_POST['accessLevel'];
     $thumb = $_POST['thumb'];
     $key_words = $_POST['key_words'];
     $info = $_POST['info'];
@@ -416,7 +417,7 @@ elseif ($action == 'save_content') {
                                                          // 添加主表
     foreach ($cate_arr as $ck => $cv) {
         $cv_arr = explode('|', $cv);
-        $main_sql = "insert into " . DB_PRE . "maintb (title,filter,tbpic,keywords,info,author,source,hits,category,channel,addtime,top,purview,is_html,lang,updatetime,is_url,url_add,verify,title_color,title_style,is_open,cache_time,custom_url,content_key,small_title) values ('{$title}','{$filter_str}','{$thumb}','{$key_words}','{$info}','{$author}','{$source}',{$hits},{$cv_arr[0]},{$id},'{$addtime}',{$top},{$purview},{$is_html},'{$cv_arr[1]}','{$addtime}',{$is_url},'{$url_add}',{$verify},'{$title_color}',{$title_style},{$is_open},'{$cache_time}','{$custom_url}','{$content_key}','{$small_title}')";
+        $main_sql = "insert into " . DB_PRE . "maintb (title,accessLevel,filter,tbpic,keywords,info,author,source,hits,category,channel,addtime,top,purview,is_html,lang,updatetime,is_url,url_add,verify,title_color,title_style,is_open,cache_time,custom_url,content_key,small_title) values ('{$title}','{$accessLevel}','{$filter_str}','{$thumb}','{$key_words}','{$info}','{$author}','{$source}',{$hits},{$cv_arr[0]},{$id},'{$addtime}',{$top},{$purview},{$is_html},'{$cv_arr[1]}','{$addtime}',{$is_url},'{$url_add}',{$verify},'{$title_color}',{$title_style},{$is_open},'{$cache_time}','{$custom_url}','{$content_key}','{$small_title}')";
         $GLOBALS['mysql']->query($main_sql);
         $last_id = $GLOBALS['mysql']->insert_id();
         if (! $ck) {
@@ -958,7 +959,7 @@ elseif ($action == 'save_edit_content') {
     $author = empty($author) ? '' : cn_substr($author, 60);
     $source = empty($source) ? '' : cn_substr($source, 60);
     $cache_time = empty($cache_time) ? 30 : $cache_time; // 缓存时间
-    $main_sql = "update " . DB_PRE . "maintb set title='{$title}',filter='{$filter_str}',tbpic='{$thumb}',keywords='{$key_words}',info='{$info}',author='{$author}',source='{$source}',category={$category},top={$top},purview={$purview},is_html={$is_html},is_url={$is_url},url_add='{$url_add}',title_color='{$title_color}',title_style={$title_style},is_open={$is_open},cache_time='{$cache_time}',updatetime='{$updatetime}',custom_url='{$custom_url}',content_key='{$content_key}',small_title = '{$small_title}' where id={$id}";
+    $main_sql = "update " . DB_PRE . "maintb set title='{$title}',accessLevel='{$accessLevel}',filter='{$filter_str}',tbpic='{$thumb}',keywords='{$key_words}',info='{$info}',author='{$author}',source='{$source}',category={$category},top={$top},purview={$purview},is_html={$is_html},is_url={$is_url},url_add='{$url_add}',title_color='{$title_color}',title_style={$title_style},is_open={$is_open},cache_time='{$cache_time}',updatetime='{$updatetime}',custom_url='{$custom_url}',content_key='{$content_key}',small_title = '{$small_title}' where id={$id}";
     $GLOBALS['mysql']->query($main_sql);
     
     // 生成url
