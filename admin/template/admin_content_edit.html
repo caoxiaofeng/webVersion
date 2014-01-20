@@ -256,6 +256,34 @@ function change_alt(n,id){
 									</select><span name="easyTip">不能为空</span></td>
 								</tr>
 								<tr>
+                          	<td style="width: 20%; text-align: center" class="w1">
+                                阅读范围:
+                          	</td>
+                          	<td style="width: 80%">
+                          	   <select 
+                                  name="accessLevel"
+                                  id="asl"
+                                  style="float:left; display: inline">
+
+                                <option value="0" <?php
+												if($field_value['accessLevel']==0){ echo
+												'selected="selected"';}?>>
+                                  所有人
+                                </option>
+                                <option value="1" <?php
+												if($field_value['accessLevel']==1){ echo
+												'selected="selected"';}?>>
+                                  注册用户
+                                </option>
+                                <option value="2" <?php
+												if($field_value['accessLevel']==2){ echo
+												'selected="selected"';}?>>
+                                  VIP用户
+                                </option>
+                              </select>
+                          	</td>
+                          </tr>
+								<tr>
 									<td class="w1" style="text-align: center"><span title=""
 										class="help">短标题:</span></td>
 									<td style="width: 80%"><input type="text"

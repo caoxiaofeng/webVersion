@@ -620,6 +620,7 @@ elseif ($action == 'save_edit_content') {
     $id = intval($_POST['id']);
     $channel_id = intval($_POST['channel_id']);
     $title = $_POST['title'];
+    $accessLevel = $_POST['accessLevel'];
     $thumb = $_POST['thumb'];
     $key_words = $_POST['key_words'];
     $info = $_POST['info'];

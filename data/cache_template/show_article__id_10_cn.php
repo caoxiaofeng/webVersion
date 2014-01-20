@@ -212,7 +212,7 @@ document.write('</object>');
                 </script>
               </span>
               <span>
-                更新时间:2014-01-20 18:01:30              </span>
+                更新时间:2014-01-20 18:01:22              </span>
               <span>
                 <a href="javascript:window.print()">
                   【打印】

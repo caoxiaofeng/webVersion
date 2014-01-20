@@ -479,7 +479,7 @@ document.write('</object>');
                                             >
                     中央纪律检查委员会委员，中央和国家机关各部...                  </a>
                   <span style="display:inline;float:right; margin-right: 10px">
-                    14-01-14                  </span>
+                    14-01-20                  </span>
                 </p>
                                 <p>
                   <img style="display:inline;float:left;" src="/template/default/images/article_triangle_tip.png" alt="文章" />
