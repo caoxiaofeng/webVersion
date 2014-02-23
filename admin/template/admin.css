@@ -122,13 +122,13 @@ input,textarea,select {
 }
 
 .login_title {
-	padding-top: 29px;
-	background: url(images/login_title.gif) no-repeat 10px 5px;
+	padding-top: 0px;
+    /* ackground: url(images/login_title.gif) no-repeat 10px 5px; */
 }
 
 .login form {
 	padding-left: 120px;
-	background: url(images/login_icon.gif) no-repeat 15px center;
+	/* background: url(images/login_icon.gif) no-repeat 15px center; */
 	margin-top: 18px;
 }
 

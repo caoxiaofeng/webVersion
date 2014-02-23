@@ -229,6 +229,11 @@ center;     color: #000000;     margin-top: 0px;     margin-bottom: 0px; } */
 .mainPageStyle #mainContent_cate_list_content a{
 	display:inline;
 	float:left;
+	margin-left:15px;
+	font-family:SimSun;
+	font-size:12px;
+	font-weight:100;
+	/* letter-spacing:1px; */
 }
 
 .mainPageStyle #mainContent_r {

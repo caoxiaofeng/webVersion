@@ -74,7 +74,7 @@ foreach($fun_return as $v){?> <a href="<?php echo $v['url'];?>"<?php echo $v['cl
 foreach($fun_return as $nav_child){?>
         <li class="<?php echo $nav_child['class'];?>">
         <a href="<?php echo $nav_child['url'];?>"<?php echo $nav_child['target'];?>>
-          <span>
+          <span style="font-family:'\5B8B\4F53';">
             <?php echo $nav_child['cate_name'];?>
           </span>
         </a>

@@ -156,16 +156,16 @@ $(document).ready(
  $fun_return=top_article(5);if(isset($fun_return)&&is_array($fun_return)){
 foreach($fun_return as $nav_child){?>
                 <p>
-                  <b>
+                 
                     <span 
-                        style="font-size: 12px; width: 20%; margin-top: 12px; text-align: center; display: block; float: left">
+                        style="font-family:simsun; font-size: 14px; width: 20%; margin-top: 11px; text-align: center; display: block; float: left">
 
                       <?php echo $nav_child['cate_name'];?>:
                     </span>
-                  </b>
+                  
                   <?php $hot_arc=get_else_content($cate_id=$nav_child['id'],$limit='0,1',$order_type='updatetime',$filter='',$pic='no',$order='desc',$lang='');?> <?php if($hot_arc){?>
                   <a title="<?php echo $hot_arc[0]['title'];?>" href="<?php echo $hot_arc[0]['url'];?>">
-                    <span style="width: 80%; text-align: left; margin-top: 12px; display: block; float: left">
+                    <span style="font-family:simsun; font-size: 13px;width: 80%; text-align: left; margin-top: 11px; display: block; float: left">
                       <?php echo cn_substr($hot_arc[0]['title'],60);?>
                     </span>
                   </a>
@@ -274,14 +274,14 @@ foreach($fun_return as $nav_child){?>
  $fun_return=$hot_arc;if(isset($fun_return)&&is_array($fun_return)){
 foreach($fun_return as $v){?>
                 <p>
-                  <img style="display:inline;float:left;" src="<?php cmspath('template');?>/images/article_triangle_tip.png" alt="文章" />
+                  <img style="display:inline;float:left;margin-left:10px;" src="<?php cmspath('template');?>/images/article_triangle_tip.png" alt="文章" />
                   <a title="<?php echo $v['title'];?>"
                       href="<?php echo $v['url'];?>"
                       <?php echo $v['target'];?>
                       <?php if($v['style']){?>
                       style="<?php echo $v['style'];?>"
                       <?php }?>>
-                    <?php echo cn_substr($v['title'],60);?>
+                    <?php echo cn_substr($v['title'],50);?>
                   </a>
                   <span style="display:inline;float:right; margin-right: 10px">
                     <?php echo date('y-m-d',$v['updatetime']);?>

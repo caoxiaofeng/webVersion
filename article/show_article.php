@@ -73,6 +73,10 @@ $body_content = $content['content'];
 $content_arr = preg_split('/<div style=\"page-break-after: always[;]*\">\s*<span style=\"display: none[;]*\">&nbsp;<\/span><\/div>/i', $body_content);
 $content_arr_num = count($content_arr);
 $content_arr_num = ($content_arr_num > 1) ? $content_arr_num : 0;
+
+$child = get_child_id($cat_id);
+$list_cate = empty($child) ? $cat_id : $cat_id . $child; // 所有栏目包含子栏目
+
 if ($content_arr_num) {
     for ($i = 0; $i < $content_arr_num; $i ++) {
         if ($page == ($i + 1)) {

@@ -4,6 +4,7 @@
     "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -33,9 +34,10 @@
             <a 
                 class="{print $nav['class']/}"
                 href="{print $nav['url']/}"
-                 {print
+                {print
                 $nav['target']/}
-                 title="{print $nav['cate_name']/}">
+                title="{print $nav['cate_name']/}">
+
 
               {print $nav['cate_name']/}
             </a>
@@ -53,10 +55,10 @@
       </div>
       <div class="clear">
       </div>
-      
 
 
-      <div id="mainContent">  
+
+      <div id="mainContent">
         <div id="mainContent_article_list">
           <div class="box_in">
             <p class="title" style="">
@@ -117,27 +119,49 @@
           <div class="clear">
           </div>
 
-        </div>
+          <div>
+            {assign source=get_else_content($cate_id=$nav_child['id'],$limit='0,5',$order_type='updatetime',$filter='',$pic='no',$order='desc',$lang='')
+            name=hot_arc/} {if $hot_arc} {loop source=$hot_arc}
+            <p>
+              <a 
+                  title="{print $v['title']/}"
+                  href="{print $v['url']/}"
+                  {print
+                  $v['target']/}
+                  {if
+                  $v['style']}
+                  style="{print $v['style']/}"
+                  {/if}>
 
-        <!-- 右侧广告 -->
-        <div id="mainContent_r">
-          <div id="mainContent_r_grid">
-            {right_ad1/}
+                {print cn_substr($v['title'],50)/}
+              </a>
+            </p>
+            <hr width=300 size=1 color=#00ffff align=center noshade>
+            {/loop} {/if}
           </div>
-          <div id="mainContent_r_grid">
-            {right_ad2/}
-          </div>
-          <div id="mainContent_r_grid">
-            {right_ad3/}
-          </div>
-        </div>
-        <div class="clear">
         </div>
 
       </div>
+
+      <!-- 右侧广告 -->
+      <div id="mainContent_r">
+        <div id="mainContent_r_grid">
+          {right_ad1/}
+        </div>
+        <div id="mainContent_r_grid">
+          {right_ad2/}
+        </div>
+        <div id="mainContent_r_grid">
+          {right_ad3/}
+        </div>
+      </div>
+      <div class="clear">
+      </div>
+
     </div>
   </div>
+</div>
 
-  {include foot/}
+{include foot/}
 </body>
 </html>

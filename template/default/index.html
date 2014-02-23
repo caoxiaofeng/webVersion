@@ -156,18 +156,18 @@ $(document).ready(
               <div style="margin-top:10px;float: left">
                 {loop source=top_article(5) item=$nav_child}
                 <p>
-                  <b>
+                 
                     <span 
-                        style="font-size: 12px; width: 20%; margin-top: 12px; text-align: center; display: block; float: left">
+                        style="font-family:simsun; font-size: 14px; width: 20%; margin-top: 11px; text-align: center; display: block; float: left">
 
                       {print $nav_child['cate_name']/}:
                     </span>
-                  </b>
+                  
                   {assign
                   source=get_else_content($cate_id=$nav_child['id'],$limit='0,1',$order_type='updatetime',$filter='',$pic='no',$order='desc',$lang='')
                   name=hot_arc/} {if $hot_arc}
                   <a title="{print $hot_arc[0]['title']/}" href="{print $hot_arc[0]['url']/}">
-                    <span style="width: 80%; text-align: left; margin-top: 12px; display: block; float: left">
+                    <span style="font-family:simsun; font-size: 13px;width: 80%; text-align: left; margin-top: 11px; display: block; float: left">
                       {print cn_substr($hot_arc[0]['title'],60)/}
                     </span>
                   </a>
@@ -272,14 +272,14 @@ $(document).ready(
                 source=get_else_content($cate_id=$nav_child['id'],$limit='0,7',$order_type='hits',$filter='',$pic='no',$order='desc',$lang='')
                 name=hot_arc/} {if $hot_arc} {loop source=$hot_arc}
                 <p>
-                  <img style="display:inline;float:left;" src="{path template/}/images/article_triangle_tip.png" alt="文章" />
+                  <img style="display:inline;float:left;margin-left:10px;" src="{path template/}/images/article_triangle_tip.png" alt="文章" />
                   <a title="{print $v['title']/}"
                       href="{print $v['url']/}"
                       {print $v['target']/}
                       {if $v['style']}
                       style="{print $v['style']/}"
                       {/if}>
-                    {print cn_substr($v['title'],60)/}
+                    {print cn_substr($v['title'],50)/}
                   </a>
                   <span style="display:inline;float:right; margin-right: 10px">
                     {print date('y-m-d',$v['updatetime'])/}

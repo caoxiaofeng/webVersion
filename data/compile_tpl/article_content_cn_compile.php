@@ -4,6 +4,7 @@
     "-//W3C//DTD XHTML 1.0 Transitional//EN"
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -35,8 +36,9 @@ foreach($fun_return as $nav){?>
             <a 
                 class="<?php echo $nav['class'];?>"
                 href="<?php echo $nav['url'];?>"
-                 <?php echo                 $nav['target'];?>
-                 title="<?php echo $nav['cate_name'];?>">
+                <?php echo                 $nav['target'];?>
+                title="<?php echo $nav['cate_name'];?>">
+
 
               <?php echo $nav['cate_name'];?>
             </a>
@@ -56,10 +58,10 @@ foreach($fun_return as $nav){?>
       </div>
       <div class="clear">
       </div>
-      
 
 
-      <div id="mainContent">  
+
+      <div id="mainContent">
         <div id="mainContent_article_list">
           <div class="box_in">
             <p class="title" style="">
@@ -123,27 +125,50 @@ foreach($fun_return as $v){?>
           <div class="clear">
           </div>
 
-        </div>
+          <div>
+            <?php $hot_arc=get_else_content($cate_id=$nav_child['id'],$limit='0,5',$order_type='updatetime',$filter='',$pic='no',$order='desc',$lang='');?> <?php if($hot_arc){?> <?php 
+ $fun_return=$hot_arc;if(isset($fun_return)&&is_array($fun_return)){
+foreach($fun_return as $v){?>
+            <p>
+              <a 
+                  title="<?php echo $v['title'];?>"
+                  href="<?php echo $v['url'];?>"
+                  <?php echo                   $v['target'];?>
+                  <?php if(                  $v['style']){?>
+                  style="<?php echo $v['style'];?>"
+                  <?php }?>>
 
-        <!-- 右侧广告 -->
-        <div id="mainContent_r">
-          <div id="mainContent_r_grid">
-            <?php echo right_ad('1');?>
+                <?php echo cn_substr($v['title'],50);?>
+              </a>
+            </p>
+            <hr width=300 size=1 color=#00ffff align=center noshade>
+            <?php 
+}
+}?> <?php }?>
           </div>
-          <div id="mainContent_r_grid">
-            <?php echo right_ad('2');?>
-          </div>
-          <div id="mainContent_r_grid">
-            <?php echo right_ad('3');?>
-          </div>
-        </div>
-        <div class="clear">
         </div>
 
       </div>
+
+      <!-- 右侧广告 -->
+      <div id="mainContent_r">
+        <div id="mainContent_r_grid">
+          <?php echo right_ad('1');?>
+        </div>
+        <div id="mainContent_r_grid">
+          <?php echo right_ad('2');?>
+        </div>
+        <div id="mainContent_r_grid">
+          <?php echo right_ad('3');?>
+        </div>
+      </div>
+      <div class="clear">
+      </div>
+
     </div>
   </div>
+</div>
 
-  <?php $this->display('foot',1,1);?>
+<?php $this->display('foot',1,1);?>
 </body>
 </html>

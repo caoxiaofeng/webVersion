@@ -983,6 +983,11 @@ function category_article($limit=7)
                     $i++;
                     continue;
                 }
+                
+                if($v['cate_name'] == '企业动向' || $v['cate_name'] == '我的空间'){
+                    continue;
+                }
+                
                 //只取价格列表之后$limit数量的栏目
                 if($i>$limit+1){
                     break;
