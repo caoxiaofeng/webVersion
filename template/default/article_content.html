@@ -5,6 +5,8 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
+
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -37,6 +39,8 @@
                 {print
                 $nav['target']/}
                 title="{print $nav['cate_name']/}">
+
+
 
 
               {print $nav['cate_name']/}
@@ -113,53 +117,74 @@
               <div class="arc_link" style="clear: both"> <span>{print content('prev')/}</span><span>{print
               content('next')/}}</span </div>
             -->
-
-
+          </div>
+          <div>
+            <p style="font-size:15px;font-weight: bold; font-color:#097391;float:right; margin-right:10px;">
+              <span>
+                <a href="javascript:window.print()" style="color:#097391;">
+                  【打印】
+                </a>
+              </span>
+              <span>
+                <a href="javascript:self.close()" style="color:#097391;">
+                  【关闭】
+                </a>
+              </span>
+            </p>
           </div>
           <div class="clear">
           </div>
 
           <div>
-            {assign source=get_else_content($cate_id=$nav_child['id'],$limit='0,5',$order_type='updatetime',$filter='',$pic='no',$order='desc',$lang='')
-            name=hot_arc/} {if $hot_arc} {loop source=$hot_arc}
-            <p>
-              <a 
-                  title="{print $v['title']/}"
-                  href="{print $v['url']/}"
-                  {print
-                  $v['target']/}
-                  {if
-                  $v['style']}
-                  style="{print $v['style']/}"
-                  {/if}>
+            {assign
+            source=get_else_content($cate_id=$nav_child['id'],$limit='0,5',$order_type='updatetime',$filter='',$pic='no',$order='desc',$lang='')
+            name=hot_arc/} {if $hot_arc}
+            <ul style="border-bottom: 1px solid #7096cc;">
+              <li 
+                  style="font-size: 14px; background:#f7fafe; height:28px;line-height:28px; border-top:1px solid #7096cc; border-bottom: 1px solid #e4e4e4;">
 
-                {print cn_substr($v['title'],50)/}
-              </a>
-            </p>
-            <hr width=300 size=1 color=#00ffff align=center noshade>
-            {/loop} {/if}
-          </div>
-        </div>
 
+              相关信息
+            </li>
+            {loop source=$hot_arc}
+            <li style="font-size: 14px; height:40px;height:28px;line-height:28px;border-bottom: 1px solid #e4e4e4;">
+            <a 
+                title="{print $v['title']/}"
+                href="{print $v['url']/}"
+                {print
+                $v['target']/}
+                {if
+                $v['style']}
+                style="{print $v['style']/}"
+                {/if}>
+              {print cn_substr($v['title'],50)/}
+            </a>
+          </li>
+          {/loop}
+         
+        </ul>
+        {/if}
+        
       </div>
-
-      <!-- 右侧广告 -->
-      <div id="mainContent_r">
-        <div id="mainContent_r_grid">
-          {right_ad1/}
-        </div>
-        <div id="mainContent_r_grid">
-          {right_ad2/}
-        </div>
-        <div id="mainContent_r_grid">
-          {right_ad3/}
-        </div>
-      </div>
-      <div class="clear">
-      </div>
-
     </div>
+
+    <!-- 右侧广告 -->
+    <div id="mainContent_r">
+      <div id="mainContent_r_grid">
+        {right_ad1/}
+      </div>
+      <div id="mainContent_r_grid">
+        {right_ad2/}
+      </div>
+      <div id="mainContent_r_grid">
+        {right_ad3/}
+      </div>
+    </div>
+    <div class="clear">
+    </div>
+
   </div>
+</div>
 </div>
 
 {include foot/}

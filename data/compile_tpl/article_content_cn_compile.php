@@ -5,6 +5,8 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
+
+
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -38,6 +40,8 @@ foreach($fun_return as $nav){?>
                 href="<?php echo $nav['url'];?>"
                 <?php echo                 $nav['target'];?>
                 title="<?php echo $nav['cate_name'];?>">
+
+
 
 
               <?php echo $nav['cate_name'];?>
@@ -119,54 +123,74 @@ foreach($fun_return as $v){?>
             <!--
               <div class="arc_link" style="clear: both"> <span><?php echo content('prev');?></span><span><?php echo               content('next');?>}</span </div>
             -->
-
-
+          </div>
+          <div>
+            <p style="font-size:15px;font-weight: bold; font-color:#097391;float:right; margin-right:10px;">
+              <span>
+                <a href="javascript:window.print()" style="color:#097391;">
+                  【打印】
+                </a>
+              </span>
+              <span>
+                <a href="javascript:self.close()" style="color:#097391;">
+                  【关闭】
+                </a>
+              </span>
+            </p>
           </div>
           <div class="clear">
           </div>
 
           <div>
-            <?php $hot_arc=get_else_content($cate_id=$nav_child['id'],$limit='0,5',$order_type='updatetime',$filter='',$pic='no',$order='desc',$lang='');?> <?php if($hot_arc){?> <?php 
+            <?php $hot_arc=get_else_content($cate_id=$nav_child['id'],$limit='0,5',$order_type='updatetime',$filter='',$pic='no',$order='desc',$lang='');?> <?php if($hot_arc){?>
+            <ul style="border-bottom: 1px solid #7096cc;">
+              <li 
+                  style="font-size: 14px; background:#f7fafe; height:28px;line-height:28px; border-top:1px solid #7096cc; border-bottom: 1px solid #e4e4e4;">
+
+
+              相关信息
+            </li>
+            <?php 
  $fun_return=$hot_arc;if(isset($fun_return)&&is_array($fun_return)){
 foreach($fun_return as $v){?>
-            <p>
-              <a 
-                  title="<?php echo $v['title'];?>"
-                  href="<?php echo $v['url'];?>"
-                  <?php echo                   $v['target'];?>
-                  <?php if(                  $v['style']){?>
-                  style="<?php echo $v['style'];?>"
-                  <?php }?>>
-
-                <?php echo cn_substr($v['title'],50);?>
-              </a>
-            </p>
-            <hr width=300 size=1 color=#00ffff align=center noshade>
-            <?php 
+            <li style="font-size: 14px; height:40px;height:28px;line-height:28px;border-bottom: 1px solid #e4e4e4;">
+            <a 
+                title="<?php echo $v['title'];?>"
+                href="<?php echo $v['url'];?>"
+                <?php echo                 $v['target'];?>
+                <?php if(                $v['style']){?>
+                style="<?php echo $v['style'];?>"
+                <?php }?>>
+              <?php echo cn_substr($v['title'],50);?>
+            </a>
+          </li>
+          <?php 
 }
-}?> <?php }?>
-          </div>
-        </div>
-
+}?>
+         
+        </ul>
+        <?php }?>
+        
       </div>
-
-      <!-- 右侧广告 -->
-      <div id="mainContent_r">
-        <div id="mainContent_r_grid">
-          <?php echo right_ad('1');?>
-        </div>
-        <div id="mainContent_r_grid">
-          <?php echo right_ad('2');?>
-        </div>
-        <div id="mainContent_r_grid">
-          <?php echo right_ad('3');?>
-        </div>
-      </div>
-      <div class="clear">
-      </div>
-
     </div>
+
+    <!-- 右侧广告 -->
+    <div id="mainContent_r">
+      <div id="mainContent_r_grid">
+        <?php echo right_ad('1');?>
+      </div>
+      <div id="mainContent_r_grid">
+        <?php echo right_ad('2');?>
+      </div>
+      <div id="mainContent_r_grid">
+        <?php echo right_ad('3');?>
+      </div>
+    </div>
+    <div class="clear">
+    </div>
+
   </div>
+</div>
 </div>
 
 <?php $this->display('foot',1,1);?>
