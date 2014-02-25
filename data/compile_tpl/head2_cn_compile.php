@@ -64,7 +64,10 @@ foreach($fun_return as $v){?> <a href="<?php echo $v['url'];?>"<?php echo $v['cl
         <ul>
           <li class="<?php echo get_web_param('index_focus');?>">
           <a href="<?php cmspath('index');?>">
-            <span style="color:#177b32;background-image:url(../../<?php cmspath('template');?>/images/nav_index_bg.png);background-position: center;">
+            <!-- <span style="color:#177b32;background-image:url(../../<?php cmspath('template');?>/images/nav_index_bg.png);background-position: center;">
+              首页
+            </span> -->
+            <span style="background-position: center;">
               首页
             </span>
           </a>
