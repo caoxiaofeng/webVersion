@@ -54,7 +54,7 @@ elseif ($action == 'save_content') {
     $accessLevel = $_POST['accessLevel'];
     $thumb = $_POST['thumb'];
     $key_words = $_POST['key_words'];
-    $info = $_POST['info'];
+    $info = trim($_POST['info']);
     $author = $_POST['author'];
     $source = $_POST['source'];
     $category = $_POST['category'];
@@ -409,7 +409,9 @@ elseif ($action == 'save_content') {
         }
     }
     
-    $info = ($is_info && empty($info)) ? cn_substr(strip_tags($fields['content']), 240) : $info;
+    //$info = ($is_info && empty($info)) ? cn_substr(strip_tags($fields['content']), 240) : $info;
+
+    $info = empty($info) ? cn_substr($fields['content'], 255) : $info;
     $key_words = empty($key_words) ? '' : $key_words;
     $author = empty($author) ? '' : cn_substr($author, 150);
     $source = empty($source) ? '' : cn_substr($source, 150);
@@ -623,7 +625,7 @@ elseif ($action == 'save_edit_content') {
     $accessLevel = $_POST['accessLevel'];
     $thumb = $_POST['thumb'];
     $key_words = $_POST['key_words'];
-    $info = $_POST['info'];
+    $info = trim($_POST['info']);
     $author = $_POST['author'];
     $source = $_POST['source'];
     $category = $_POST['category'];
@@ -955,7 +957,8 @@ elseif ($action == 'save_edit_content') {
     if (isset($fields['pics'])) {
         $fields['pics'] = empty($fields['pics']) ? '' : $fields['pics']; // 处理删除多图问题
     }
-    $info = ($is_info && empty($info)) ? cn_substr(strip_tags($fields['content']), 255) : $info;
+    //$info = ($is_info && empty($info)) ? cn_substr(strip_tags($fields['content']), 255) : $info;
+    $info = empty($info) ? cn_substr(strip_tags($fields['content']), 255) : $info;
     $key_words = empty($key_words) ? '' : $key_words;
     $author = empty($author) ? '' : cn_substr($author, 60);
     $source = empty($source) ? '' : cn_substr($source, 60);
